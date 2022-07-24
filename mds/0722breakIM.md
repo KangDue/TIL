@@ -180,6 +180,44 @@ for t in range(1,T+1):
         mode = False if mode else True
     print(f'#{t} {str(nums[:10])[1:-1].replace(",","")}')
 
+#카드뒤집기 swea 14557
+T = int(input())
+for t in range(1,T+1):
+    cards = input()
+    if cards.count('1')%2 == 0:
+        print(f'#{t} no')
+    else:
+        print(f'#{t} yes')
 
+#문자열 a,b가 주어질떄 a가 b에 있는지 판별
+#보이어-무어 알고리즘 활용
+T = int(input())
+for t in range(1,T+1):
+    a = input()
+    ra = a[::-1]
+    na = len(a)
+    b = input()
+    nb = len(b)
+    start = na-1 #끝자리 인덱스 = 길이 - 1
+    count = 1
+    while start < nb:
+        if b[start] != a[-1]: # 끝 불일치시
+            if b[start] in a: #a안에 포함된 문자 index만큼 이동
+                start += ra.index(b[start]) #뒤에서부터 인덱스만큼 이동 
+            else:
+                start += na #포함된게 없으면 길이만큼 shift
+        else: #끝이 일치하면
+            for i in range(-2,-na-1, -1): #a의 뒤와, b에서 비교
+                if a[i] == b[start+i+1]: # (-1) ~ (-na) 까지
+                    count += 1 #하나 일치할때마다 +1
+                else:
+                    start += count #일치한만큼 shift
+                    count = 1 #초기화
+                    break
+            else:#끝까지 잘 맞으면 실행
+                print(f'#{t} 1')
+                break
+    if count != na:
+        print(f'#{t} 0')
 
 ```
