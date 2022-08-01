@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <a href="https://www.ssafy.com">
+    <img src="ssafy.png" alt="main.img" width="300">
+    </a>
+    <h1>학생 건강 설문</h1>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SSAFY 8기 학생 건강설문</title>
+</head>
+<body>
+    <section>
+        <form action="#">
+            <div>
+            <input type="text" name="name" id="name">
+            <label for="name"></label>
+            </div>
+            <div>
+                <label for="region"></label>
+                <select name="region" id="region" required>
+                    <option value="서울"></option>
+                    <option value="대전"></option>
+                    <option value="대구"></option>
+                    <option value="부산"></option>
+                    <option value="제주" disabled>제주</option>
+                </select>
+            </div>
+            <div>
+                <p>오늘의 체온을 선택해주세요</p>
+                <input type="radio" name="body-heat" id="normal" value="normal" checked>
+                <label for="normal">37도 미만</label>
+                <input type="radio" name="body-heat" id="high" value="high" checked>
+                <label for="normal">37도 이상</label>
+            </div>
+            <footer>
+                구글 설문지로 비번 제출금지
+            </footer>
+        </form>
+    </section>
+    
+</body>
+</html>
