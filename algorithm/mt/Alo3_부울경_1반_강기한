@@ -1,0 +1,27 @@
+1. 스택의 특성 3가지 이상
+- 물건을 쌓아 올리듯 자료를 쌓아 올린 형태의 자료구조이다.
+- top: 스택의 최상단 원소의 위치를 가리킨다.(스택이 비었다면 -1 같은 값으로 나타낼 수 있다.)
+- Last In First Out(LIFO): 후입선출의 특성(늦게 들어갈수록 먼저 나온다)
+- First In Last Out: 빨리 들어갈수록 나중에 나온다.
+- 최상단의 원소가 아닌 앞이나 중간에 존재하는 값들을 제거할 수 없다.
+- 최상단이 아닌 중간에 원소를 삽입할 수 없다.
+- 항상 최상단 위치에서만 원소를 추가 하거나 삭제할 수 있다.
+- isEmpty method: 스택이 가득 찼는지 여부를 반환한다.
+- pop method: 스택의 최상단 원소를 제거하며 반환하고 top에 1을 뺀다.
+- push method: 스택의 최상단에 새로운 원소를 쌓고, top에 1을 더한다.
+- peek method: 스택의 top의 가리키는 원소를 제거하지 않고 보여준다(반환한다).
+- 구현이 비교적 간단하다(array와 top value 그리고 위의 method 들로 구현 가능).
+- DFS를 구현하는데 효과적인 자료구조이다.
+
+2.
+push(A) : A
+push(B) : AB
+pop()   : A
+push(D) : AD
+push(C) : ADC
+push(F) : ADCF
+push(E) : ADCFE
+pop()   : ADCF
+push(A) : ADCFA
+
+정답: A D C F A

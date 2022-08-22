@@ -25,6 +25,15 @@ def DFS(sums, answer): # 재귀를 잘 쓰자. ㅠㅠ
 
 DFS(0,"")
 
+#for문 subset 만들기
+arr = range(1,11)
+subsets = [[]]
+
+for num in arr:
+  size = len(subsets)
+  for y in range(size):
+    subsets.append(subsets[y]+[num])
+print(subsets)
 
 # def permute(arr):
 #     result = [arr[:]]
