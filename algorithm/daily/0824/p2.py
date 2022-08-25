@@ -6,13 +6,14 @@ for i in range(0,e*2,2):
     graph[info[i]].append(info[i+1])
     graph[info[i+1]].append(info[i])
 q = Lqueue()
-hist = []
+hist = [1]
 q.enqueue(1)
 while not q.isEmpty():
     now = q.dequeue()
     for i in graph[now]:
-        if not(i in q.arr or i in hist):
+        if i not in hist:
             q.enqueue(i)
+            hist.append(i)
     print(now,end=" ")
 
 
