@@ -10,10 +10,11 @@ hist = [1]
 q.enqueue(1)
 while not q.isEmpty():
     now = q.dequeue()
+    hist.append(now)
     for i in graph[now]:
         if i not in hist:
             q.enqueue(i)
-            hist.append(i)
+
     print(now,end=" ")
 
 

@@ -7,23 +7,19 @@ LDS 가장 긴 감소 수열 짬뽕문제
 """
 if __name__ == "__main__":
     import sys
-    from bisect import bisect_left as bl
     sr = sys.stdin.readline
     n = int(sr())
     nums = [*map(int,sr().split())]
-    l = [nums[0]] # 길이 1일대 last부터 k일때 last까지 차곡차곡
-    for i in range(1,n):#we must found position in l by bisection method
-        if nums[i] >= l[-1]:
-            l.append(nums[i])
-        elif nums[i] < l[-1]:
-            idx = bl(l,nums[i])
-            l[idx] = nums[i]
-    nnums=[-i for i in nums]
-    ll = [nnums[0]]
-    for i in range(1,n):#we must found position in l by bisection method
-        if nnums[i] > ll[-1]:
-            ll.append(nnums[i])
-        elif nnums[i] < ll[-1]:
-            idx = bl(ll,nnums[i])
-            ll[idx] = nnums[i]
-    print(max(len(l),len(ll)))
+    maxv = 1
+    t1=t2=1 #원소하나가 최소
+    for i in range(1,n):
+        if nums[i-1] >= nums[i]:#감소수열
+           t1 += 1
+        else: maxv = max(maxv,t1); t1 = 1
+        if nums[i-1] <= nums[i]:#증가수열
+            t2 += 1
+        else: maxv = max(maxv,t2); t2 = 1
+    #마지막 값.. 챙겨줘야함
+    maxv = max(t1,t2,maxv) #마지막에 else를 못거치고 나오면 비교 한 번 더
+    print(maxv)
+

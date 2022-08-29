@@ -15,23 +15,42 @@ d,w,r,l=int,input,range,list
 - 무조건 가장 가까운곳 부터 가는점 유의
 - 자리 못잡는 경우는 없음.
 """
-def put(a,):
-    start = 1 #바로앞이면 1m
-    x,y = a
-    a=b= x
-    while seat[a]:a+=1
-    while seat[b]:b-=1
-    if abs(a-x) > abs(b-x):
+def left(entry,dist):
+    global grid,cnt
+    if entry - dist > 0 and not grid[entry-dist]:
+        grid[entry-dist] = dist + 1
+        cnt += 1
+def right(entry,dist):
+    global grid,cnt
+    if entry + dist <= N and not grid[entry+dist]:
+        grid[entry+dist] = dist + 1
+        cnt += 1
 
+from itertools import permutations as pm
+for t in range(1,int(input())+1):
+    N= int(input())
+    info = [[*map(int,input().split())] for i in range(N)]
+    ans = float('inf') # 최솟값 받아올 곳
+    ways=[[left,right],[right,left]]
 
+    for turn in pm(range(3),3):
+        cnt = 0
+        for way in range(2):
+            def1,def2 = ways[way]
+            grid = [0 for _ in range(N)]
+            for i in turn :
+                entry, fisher = info[i]
+                if grid[entry]:
+                    cnt = 0
+                else:
+                    grid[entry] = 1
+                    cnt += 1
 
-d,w,r=int,input,range
-for t in r(d(w())):
-    n = d(w())
-    pp = []
-    for i in r(3):
-        x,y = map(d,w().split()) #게이트 번호, 사람수
-        pp.append([x,y])
-    seat = [0]*(n+1)
-
-
+                dist = 1
+                while cnt < fisher:
+                    def1(entry,dist)
+                    if cnt == fisher: break
+                    def2(entry, dist)
+                    dist += 1
+            ans = min(ans, sum(grid))
+    print(f'#{t+1} {ans}')
