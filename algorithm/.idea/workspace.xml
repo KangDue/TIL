@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e5a7c4f0-630b-4a1c-be86-d2a23c815e1a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IM/A/swea_15170/solve.py" beforeDir="false" afterPath="$PROJECT_DIR$/IM/A/swea_15170/solve.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IM/boj/boj_2491/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/IM/boj/boj_2491/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IM/boj/boj_2491/solve.py" beforeDir="false" afterPath="$PROJECT_DIR$/IM/boj/boj_2491/solve.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/daily/0824/p2.py" beforeDir="false" afterPath="$PROJECT_DIR$/daily/0824/p2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/q.py" beforeDir="false" afterPath="$PROJECT_DIR$/q.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daily/0829/boj_7569/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/daily/0829/boj_7569/input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daily/0829/boj_7569/solve.py" beforeDir="false" afterPath="$PROJECT_DIR$/daily/0829/boj_7569/solve.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
