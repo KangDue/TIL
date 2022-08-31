@@ -9,10 +9,10 @@ if __name__ == "__main__":
     import sys
     n = int(sys.stdin.readline())
     stairs = [0] + [int(sys.stdin.readline()) for i in range(n)]#시작점 0 padding
-    idx = [0]
     dp = [0]*(n+1)
-    dp[1] = 10
-    dp[2] = 30
-    for i in range(3,n+1):#자기 자신(마지막 계단) 밝음, or not
-        dp[i] += max(dp[i-2] + stairs[i], dp[i-3] + stairs[i-1] + stairs[i])
+    dp[1] = stairs[1]
+    if n>=2:
+        dp[2] = stairs[2]+stairs[1]
+        for i in range(3,n+1):#자기 자신(마지막 계단) 밝음, or not
+            dp[i] += max(dp[i-2] + stairs[i], dp[i-3] + stairs[i-1] + stairs[i])
     print(dp[-1])

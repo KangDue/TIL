@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e5a7c4f0-630b-4a1c-be86-d2a23c815e1a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DP/boj_2579_stairs/solve.py" beforeDir="false" afterPath="$PROJECT_DIR$/DP/boj_2579_stairs/solve.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jang/mysite/pybo/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../jang/mysite/pybo/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,16 +46,16 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/daily/0830" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/DP" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\SAFFY\TIL\algorithm\DP" />
+      <recent name="D:\SAFFY\TIL\algorithm\daily\0831" />
+      <recent name="D:\SAFFY\TIL\algorithm\daily" />
       <recent name="C:\Users\SSAFY\Desktop\studyk\TIL\algorithm\daily\0830" />
       <recent name="C:\Users\SSAFY\Desktop\studyk\TIL\algorithm\daily" />
-      <recent name="D:\SAFFY\TIL\algorithm\daily\0829" />
-      <recent name="D:\SAFFY\TIL\algorithm\IM\sam" />
-      <recent name="D:\SAFFY\TIL\algorithm\daily" />
     </key>
   </component>
   <component name="RunManager">
@@ -105,6 +107,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
