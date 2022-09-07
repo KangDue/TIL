@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Article
 from .forms import ArticleForm
 from django.views.decorators.http import require_safe,require_http_methods,require_POST
-
+from django.contrib.auth.decorators import login_required
 # @require_http_method(['method1','method2']) 는 허용 접근방식 지정가능
 # @require_post 단순히 post 필터링 뿐만 아니라 적절한 응답까지 줌.
 
@@ -26,7 +26,7 @@ def index(request):
 #         'form': form,
 #     }
 #     return render(request, 'articles/new.html', context)
-
+@login_required
 def create(request): # new의 post만 받음.
     if request.method == 'POST':
     #create
@@ -83,6 +83,7 @@ def detail(request, pk):
 #따라서 get말고 post를 먼저 확인한다.
 #DB 입장에서 우선순위 조정
 #나중에 u = put, d = delete로 method 교체함.
+@login_required
 def delete(request, pk): # get에대한 처리를 할 필요가 없다.
     if request.method == 'POST':
         article = Article.objects.get(pk=pk)
@@ -98,7 +99,7 @@ def delete(request, pk): # get에대한 처리를 할 필요가 없다.
 #     }
 #     return render(request, 'articles/edit.html', context)
 
-
+@login_required
 def update(request, pk):
     article = Article.objects.get(pk=pk)
     if request.method == 'POST':
