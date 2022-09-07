@@ -14,7 +14,10 @@ def login(request):
             #로그인. (=not save) (save = 화원가입)
             # create session
             auth_login(request,form.get_user())#2번째 인자인 유저정보 어디서?
-            return redirect(request.GET.get('next') or 'articles:index') #단축평가
+            print("---------------------")
+            print(request.GET.get('next'))
+            print("-------------------")
+            return redirect(request.GET.get('next')or 'articles:index') #단축평가
 
     else:
         form = AuthenticationForm()
