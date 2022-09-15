@@ -16,3 +16,9 @@ lp = list.append ; lp(arr,3) #
 
 3. a = open(0) 을 활용해서 입력 한꺼번에 받기 가능
 입력이 매우 많을때 1개씩 받으면 그 속도가 매우 느려짐
+
+4. 아래와 같이 입력을 받으면 속도가 빠르다고 한다.
+`import io, import os`
+`io.BytesIO(os.read(0, os.fstat(0).st_size)).readline`
+#참고 링크
+https://stackoverflow.com/questions/60594617/fastest-way-to-read-many-inputs-in-pypy3-and-what-is-bytesio-doing-here
