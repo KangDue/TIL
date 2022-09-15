@@ -34,11 +34,10 @@ for t in range(int(input())):
                     for ddy,ddx in po[grid[ny][nx]]: #갈 곳과 연결 가능한지 확인
                         if dy + ddy == 0 and dx + ddx == 0: # 두 이동의 합이 영이면 이동 가능
                             q.append([ny,nx,l-1])
-                            if l == 0:
+                            if l == 1:
                                 raise Exception
                             visited[ny][nx] = 1
-
         except:break
-
+# 47
     #print(*visited,sep='\n')
     print(f'#{t+1} {sum(sum(visited,[]))}')
