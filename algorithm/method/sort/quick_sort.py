@@ -31,10 +31,16 @@ def quick_sort_2(x):
     if len(x) <= 1: #빈 리스트일 수도 있음
         return x
     else:
-        pivot = x.pop()#호어법은 아니고 편하게 마지막 값 쓰기
-        left = [i for i in x if i <= pivot]
-        right = [i for i in x if i > pivot]
-        return quick_sort_2(left) + [pivot] + quick_sort_2(right)
+        pivot = x[-1]#호어법은 아니고 편하게 다양한 값 쓰기
+        lower,same,upper = [],[],[]
+        for i in x:
+            if x<pivot:
+                lower.append(i)
+            elif x>pivot:
+                upper.append(i)
+            else:
+                same.append(i)
+        return quick_sort_2(lower) + same + quick_sort_2(upper)
 print(quick_sort_2(a))
 
 # 평균적인 시간복잡도는 nlogn 이지만 최악은 n^2

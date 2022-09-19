@@ -17,3 +17,18 @@ def dfs(x, y):
         if 0 <= nx < n and 0 <= ny < n:
             if visited[nx][ny] == False and graph[nx][ny] == 1:
                 dfs(nx, ny)
+
+
+#심심풀이 재귀 dfs실험 (부분집합 만들기)
+hist=[0]*5
+def dfs(d=0,path=[]):
+    if d==4:
+        print(path)
+    for i in x:
+        if not hist[i]:
+            hist[i] = 1 #방문처리만해버리면 제일 처음놈이 하나씩 다 방문처리해서 1개만나오고 끝남.
+            dfs(d+1,path+[i])
+            hist[i] = 0 #뒤에서 방문한거 빼줘야함.
+
+x = [1,2,3,4]
+dfs()
