@@ -24,3 +24,18 @@ d = {'0001101':0,'0011001':1,'0010011':2,'0111101':3,'0100011':4,'0110001':5,'01
 #      s.append(d.get(p[i:i+7],100))
 #     if not sum(map(lambda x:s[x]*(1+2*(x%2==0)),R(8)))%10:a=min(a,sum(s))
 #  print(f'#{t+1} {(a<80)*a}')
+
+d = {'0001101':0,'0011001':1,'0010011':2,'0111101':3,'0100011':4,'0110001':5,'0101111':6,'0111011':7,'0110111':8,'0001011':9}
+R,I=range,input
+for t in R(int(I())):
+ n,m=map(int,I().split());a=80
+ for _ in R(n):
+  p=I()
+  for i in d:
+   x=p.find(i)
+   if -1<x<m-56:
+    s = []
+    for i in R(x,x+56,7):
+     s.append(d.get(p[i:i+7],100))
+    if not sum(map(lambda x:s[x]*(1+2*(x%2==0)),R(8)))%10:a=min(a,sum(s))
+ print(f'#{t+1} {(a<80)*a}')
