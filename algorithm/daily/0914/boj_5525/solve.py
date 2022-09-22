@@ -31,7 +31,7 @@ print(ans)
 #     if n <=0: return 1
 #     while x[idx] == x[n-idx]:
 #         idx+=1
-#         if idx >= n//2: return 1
+#         if idx >= n//p2: return 1
 # for size in range(m,0,-1):
 #     for i in range(m-size+1):
 #         if is_pal(s[i:i+size]):

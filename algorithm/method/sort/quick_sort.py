@@ -43,7 +43,7 @@ def quick_sort_2(x):
         return quick_sort_2(lower) + same + quick_sort_2(upper)
 print(quick_sort_2(a))
 
-# 평균적인 시간복잡도는 nlogn 이지만 최악은 n^2
+# 평균적인 시간복잡도는 nlogn 이지만 최악은 n^p2
 # 이미 정렬된 녀석의 맨앞 값을 pivot으로 삼으면 최악이 되기도함.
 # 그래서 평균적인 시간을 보장해 주기위해 라이브러리는 pivot 값 선정 알고리즘이 따로 있음
 # 추가로 여러 정렬을 섞어 쓰기도 함.

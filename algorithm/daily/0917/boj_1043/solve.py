@@ -17,9 +17,9 @@ sys.stdin = open('input.txt')
 #그래서 한 번 다시 훑어 줘야한다.
 # 5 3
 # 1 1
-# 3 3 2 1
-# 2 4 5
-# 2 5 1
+# 3 3 p2 1
+# p2 4 5
+# p2 5 1
 """
 
 # 1. 유니온  파인드 방법
@@ -73,7 +73,7 @@ sys.stdin = open('input.txt')
 #     print(m)
 
 
-# #방법 2. set으로 직접 목격자 집합 만들기
+# #방법 p2. set으로 직접 목격자 집합 만들기
 # n,m = map(int,input().split())
 # a,*known = input().split()#진실 아는 사람 숫자와 그 번호
 # sk = set(known)

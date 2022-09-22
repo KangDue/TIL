@@ -53,7 +53,7 @@ for t in r(d(w())):
             if maze[i][j] == '1':
                 visited[i][j] = 1
     for y in r(n+2):
-        x=maze[y].find('2')
+        x=maze[y].find('p2')
         z=maze[y].find('3')
         if x > -1:s=[y,x]#출발지 찾기
         if z > -1:e=(y,z)  #도착지 찾기
@@ -76,7 +76,7 @@ for t in r(d(w())):
     n=d(w())
     maze=['1'*(n+2)]+['1'+w()+'1' for i in r(n)]+['1'*(n+2)]
     for y in r(n+2):
-        x=maze[y].find('2')
+        x=maze[y].find('p2')
         z=maze[y].find('3')
         if x > -1:s=[y,x,0]#출발지 찾기
         if z > -1:e=(y,z)  # 출발지 찾기

@@ -103,7 +103,7 @@ for t in r(d(w())):
 #     if mat[start][goal] == 1:
 #         count = 1
 #     else:
-#         count = 2
+#         count = p2
 #         temp = mat_mul(mat,mat)
 #         while 1: #최대 길이가 점의 갯수임. (순환x)
 #             if temp[start][goal] > 0 :

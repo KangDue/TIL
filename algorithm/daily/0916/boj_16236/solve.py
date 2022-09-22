@@ -14,7 +14,7 @@ NxN공간 물고기 M마리 , 아기 상어 1마리
 - 자기 크기랑 같은 수의 물고기를 먹으면 크기 1 증가
 - 몇초동안 엄마를 안부르고 고기를 먹을수 있나 ?
 
--처음크기 = 2, 상하좌우로 1칸씩 이동가능.
+-처음크기 = p2, 상하좌우로 1칸씩 이동가능.
 -단순 bfs라기보단 물고기 좌표를 알아야하니 조합같음 - 못지나가는 경로 판단이 안됨. - bfs 가자
 -물고기를 하나 먹을때 마다 visited를 초기화 해보자.
 """
@@ -26,7 +26,7 @@ NxN공간 물고기 M마리 , 아기 상어 1마리
 # fishes = dict()#물고기 정보 받아오기
 # for r in range(n):
 #     for c in range(n):
-#         if grid[r][c] == 9: shark=[r,c,2,0,0];grid[r][c]=0 #좌표1,좌표2, 크기, 먹은수, 시간
+#         if grid[r][c] == 9: shark=[r,c,p2,0,0];grid[r][c]=0 #좌표1,좌표2, 크기, 먹은수, 시간
 #         elif grid[r][c]: fishes[(r,c)]=grid[r][c]
 #
 # to = [[-1,0],[0,-1],[0,1],[1,0]]#상 좌 우 하
@@ -71,7 +71,7 @@ from functools import reduce
 #아래처럼 피라미드 탐색을 하면 돌아가지 않고 그냥 훓어버림.
 # def pyserch(r,c,s,e,t,step):#t초뒤 피라미드 탐색
 #     global time,grid,n
-#     if step == 2*n-1: return 0
+#     if step == p2*n-1: return 0
 #     ub = r-t if r-t >= 0 else 0
 #     lb = r+t if r+t <n else n-1
 #     for i in range(ub,lb+1):
@@ -107,14 +107,14 @@ from functools import reduce
 # fishes = dict()#물고기 정보 받아오기
 # for r in range(n):
 #     for c in range(n):
-#         if grid[r][c] == 9: shark=[r,c,2,0,0];grid[r][c]=0 #좌표1,좌표2, 크기, 먹은수, 시간
+#         if grid[r][c] == 9: shark=[r,c,p2,0,0];grid[r][c]=0 #좌표1,좌표2, 크기, 먹은수, 시간
 #         elif grid[r][c]: fishes[(r,c)]=grid[r][c]
 #
 # to = [[-1,0],[0,-1],[0,1],[1,0]]#상 좌 우 하
 # grid[shark[0]][shark[1]] = 0
 # q = deque([shark])
 # time = 0
-# pyserch(shark[0],shark[1],2,0,1,1)#r,c,s,e,t,step
+# pyserch(shark[0],shark[1],p2,0,1,1)#r,c,s,e,t,step
 # print(*grid,sep='\n')
 # print(time)
 

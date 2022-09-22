@@ -4,7 +4,7 @@ sys.stdin = open('input.txt')
 """
 정말 쉬운문제인데 화가나네...
 1. 0도 된다.(음수만 버림)
-2. 순서 잘보기 (끝)
+p2. 순서 잘보기 (끝)
 """
 if __name__ == "__main__":
     import sys

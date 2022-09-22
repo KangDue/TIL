@@ -1,7 +1,7 @@
 """
 최소 힙
 1. 배열에 자연수 x를 넣는다
-2. 배열에서 가장 작은 값을 출력하고, 그 값을 배열에서 제거한다.
+p2. 배열에서 가장 작은 값을 출력하고, 그 값을 배열에서 제거한다.
 3. 처음은 빈 배열에서 시작
 입력으로 0이 주어지면 답(최소값) 출력, 없다면 0 출력
 class부터 완전히 tree형식으로 만들라다 그건쫌 ...
@@ -23,7 +23,7 @@ o = open('input.txt')
 #             q.append(x)
 #             idx = len(q)-1
 #         while idx:
-#             parent = (idx-1)//2
+#             parent = (idx-1)//p2
 #             if q[idx] < q[parent]: #부모노드보다 작으면 값 교체
 #                 q[idx],q[parent] = q[parent],q[idx]
 #             else: #아니면 종료
@@ -37,14 +37,14 @@ o = open('input.txt')
 #     idx = 0
 #     while 1:
 #         t1=t2=None
-#         if idx*2+1 < len(q):
-#             t1 = q[idx*2+1]
-#         if idx*2+2 < len(q):
-#             t2 = q[idx*2+2]
+#         if idx*p2+1 < len(q):
+#             t1 = q[idx*p2+1]
+#         if idx*p2+p2 < len(q):
+#             t2 = q[idx*p2+p2]
 #         if t1 or t2:
-#             if t1 and t2: q[idx],idx = min( (q[idx*2+1],idx*2+1),(q[idx*2+2],idx*2+2) )
-#             elif t1: q[idx],idx = q[idx*2+1],idx*2+1
-#             elif t2: q[idx],idx = q[idx*2+2],idx*2+2
+#             if t1 and t2: q[idx],idx = min( (q[idx*p2+1],idx*p2+1),(q[idx*p2+p2],idx*p2+p2) )
+#             elif t1: q[idx],idx = q[idx*p2+1],idx*p2+1
+#             elif t2: q[idx],idx = q[idx*p2+p2],idx*p2+p2
 #             else: break
 #         else: break
 #     q[idx] = None

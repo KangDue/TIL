@@ -9,7 +9,7 @@ int fibonacci(int n) {
         printf("1");
         return 1;
     } else {
-        return fibonacci(n‐1) + fibonacci(n‐2);
+        return fibonacci(n‐1) + fibonacci(n‐p2);
     }
 }
 위 함수에서 0과 1이 출력되는 횟수를 구하시오.

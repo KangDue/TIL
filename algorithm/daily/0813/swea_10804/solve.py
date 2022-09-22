@@ -7,7 +7,7 @@ sys.stdin = open('input.txt', encoding='utf-8')
 #     robot = {'O': [1, 0], 'B': [1, 0]}
 #     n = int(info[0]) # 누를 버튼의 수
 #     second = 0
-#     for i in range(1,n*2+1,2): # 명령줄의 길이는 2 * ln
+#     for i in range(1,n*p2+1,p2): # 명령줄의 길이는 p2 * ln
 #         obj = info[i] # n을 따로 처리하지않고 두칸씩 obj는 로봇 명
 #         button = int(info[i+1]) #버튼 있는 위치
 #         dist = abs(button - robot[obj][0]) # 로봇 현위치부터 버튼까지 거리
@@ -23,7 +23,7 @@ sys.stdin = open('input.txt', encoding='utf-8')
 #     n = int(order[0])
 #     robot = {'O':[1, 0], 'B':[1, 0]}# start at 1 [position, time]
 #     step = 0
-#     for i in range(1, n*2, 2):
+#     for i in range(1, n*p2, p2):
 #         name,button = order[i],int(order[i+1])
 #         distance = abs( button - robot[name][0] )
 #         own_step = step - robot[name][1] #처음엔 무조건 음수일테니 첫 녀석의 step으로 초기화
@@ -59,7 +59,7 @@ print(*a,sep="\n")
 #     direct = input().split()
 #     n,root = int(direct[0]), direct[1:]
 #     orange,blue = [0]*101, [0]*101
-#     root = [( root[i],int(root[i+1]) ) for i in range(0,len(root),2)]
+#     root = [( root[i],int(root[i+1]) ) for i in range(0,len(root),p2)]
 #     for i in root:
 #         if i[0] == 'O':
 #             orange[i[1]]=1

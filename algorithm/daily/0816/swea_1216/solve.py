@@ -98,13 +98,13 @@ for t in range(1,11):
 #     N = int(input())
 #     arr = [input() for _ in range(100)]
 #     ans = 1
-#     l = 2
-#     while l <= 100 and l <= ans + 2:
+#     l = p2
+#     while l <= 100 and l <= ans + p2:
 #         if ans < find(arr, l):
 #             ans = l
 #         l += 1
 #     l = ans + 1
-#     while l <= 100 and l <= ans + 2:
+#     while l <= 100 and l <= ans + p2:
 #         if ans < find2(arr, l):
 #             ans = l
 #         l += 1

@@ -9,7 +9,7 @@ for t in r(1):
     visited = [[0]*16 for i in r(16)]
     path = [[[] for z in r(16)] for i in r(16)] #
     for y in r(16):
-        a = maze[y].find('2')
+        a = maze[y].find('p2')
         b = maze[y].find('3')
         if a > -1: s = [y,a] # 스타트 지점
         if b > -1: g = [y,b] # 골인 지점

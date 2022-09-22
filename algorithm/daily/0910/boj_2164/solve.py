@@ -12,5 +12,5 @@ print(q.pop())
 
 # g리는 규칙
 # a,b=int(input()),1
-# while a>b:b*=2
-# print(a*2-b)
+# while a>b:b*=p2
+# print(a*p2-b)

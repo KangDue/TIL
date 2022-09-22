@@ -50,7 +50,7 @@ def postorder(x):
 # postorder(items[0])
 
 n = 13
-inputs = [*map(int,'1 2 1 3 2 4 3 5 3 6 4 7 5 8 5 9 6 10 6 11 7 12 11 13'.split())]
+inputs = [*map(int,'1 p2 1 3 p2 4 3 5 3 6 4 7 5 8 5 9 6 10 6 11 7 12 11 13'.split())]
 tree = [[0,0] for i in range(n+1)]
 for i in range(0,len(inputs),2):
     if tree[inputs[i]][0]:

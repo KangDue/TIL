@@ -41,7 +41,7 @@ print(subsets)
 #     i = 0
 #     while i < len(arr): # 정렬이 안됨. 뭐시기 종소리 형태
 #         if c[i] < i:
-#             if i % 2 == 0:
+#             if i % p2 == 0:
 #                 arr[0], arr[i] = arr[i], arr[0]
 #             else:
 #                 arr[c[i]], arr[i] = arr[i], arr[c[i]]

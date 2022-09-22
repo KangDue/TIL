@@ -5,7 +5,7 @@ sys.stdin = open('input.txt')
 땅고르기 작업이 필요하다.
 할 수 있는 작업 2가지
 1. 좌표 i,j 가장 위 블록을 캔서 인벤토리에 저장 (2초 소요)
-2. 좌표 i,j 가장 위에 블록 쌓기. (1초 소요)
+p2. 좌표 i,j 가장 위에 블록 쌓기. (1초 소요)
 
 땅고르기 작업에 걸리는 최소 시간과 완료 후 높이를 구하시오.
 땅의 높이는 256블록 초과 불가능하며, 동굴 같은 특이 case 없다.
@@ -29,7 +29,7 @@ sys.stdin = open('input.txt')
 #     for j in grid: #fills = 필요한 블록수 ,mine = 생기는 블록수 + 원래 보유 블록
 #         pivot = i - j
 #         if pivot >= 0: fills += pivot; time += pivot
-#         else: mine -= pivot; time -= 2*pivot
+#         else: mine -= pivot; time -= p2*pivot
 #         if hist and time > hist[-1]: break
 #     else:
 #         if fills <= mine: #가능
@@ -53,5 +53,5 @@ sys.stdin = open('input.txt')
 # toaru = []
 # for i in range(min(b // (m * n) + 1, 257)): #가진 블록으로 평탄화 가능한 전체 평균 높이 vs 최대 높이
 #     for j in range(257):
-#         toaru.append( (sum(a[j] * (i - j if i > j else 2 * (j - i)) for j in range(257)),i)) #시간 계산식,층
+#         toaru.append( (sum(a[j] * (i - j if i > j else p2 * (j - i)) for j in range(257)),i)) #시간 계산식,층
 # print(*min(toaru,key=lambda x:(x[0],-x[1]) ))

@@ -9,4 +9,4 @@ def insertion_sort(x,n):
 x = list(range(10,0,-1))
 print(insertion_sort(x,3))# n = n개 요소까지 정렬된 상태.
 #selection sort처럼 몇개씩 정렬할지 고를 수 있다.
-#시간 복잡도는 O(n^2)지만 거의 다 정렬된 상태면 아주 빠름.
+#시간 복잡도는 O(n^p2)지만 거의 다 정렬된 상태면 아주 빠름.

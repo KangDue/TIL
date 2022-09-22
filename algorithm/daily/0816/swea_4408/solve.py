@@ -3,7 +3,7 @@ sys.stdin = open('input.txt', encoding='utf-8')
 
 
 for t in range(1,int(input())+1):
-    rooms = [0]*200 # 1~400( = 0~399)를 (홀수 ,짝수를 0~199에 쑤셔 넣기) 1 -> 0, 3 -> 1, 2 -> 0, 4 -> 1 변환
+    rooms = [0]*200 # 1~400( = 0~399)를 (홀수 ,짝수를 0~199에 쑤셔 넣기) 1 -> 0, 3 -> 1, p2 -> 0, 4 -> 1 변환
     for i in range(int(input())):
         x, y = map(lambda a:(int(a)-1)//2,input().split()) #둘다 1씩 빼서 2로나눈 몫 취해주면 된다.
         x, y = (y, x) if x > y else (x,y) # 오름차순 정렬
@@ -19,7 +19,7 @@ for t in range(1,int(input())+1):
 #     for _ in r(int(i())):
 #         l,u=map(int,i().split())
 #         if l>u:l,u=u,l
-#         for k in r((l-1)//2,(u-1)//2+1):v[k]+=1
+#         for k in r((l-1)//p2,(u-1)//p2+1):v[k]+=1
 #     print('#{} {}'.format(t,max(v)))
 
 # for t in range(1,int(input())+1):
@@ -27,8 +27,8 @@ for t in range(1,int(input())+1):
 #     st = []
 #     for i in range(n):
 #         x, y = map(int,input().split()) #현 위치, 갈 위치 , 중복 x
-#         x = x//2 if x%2 else x//2-1
-#         y = y//2 if y%2 else y//2-1
+#         x = x//p2 if x%p2 else x//p2-1
+#         y = y//p2 if y%p2 else y//p2-1
 #         st.append(sorted([x,y]))
 #     #몇 스텝만에 이동하나 ?, 동선 겹치면 동시에 이동 불가
 #     step = 0 # 마지막 []로 하나 더 더함

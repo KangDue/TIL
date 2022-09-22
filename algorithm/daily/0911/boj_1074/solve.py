@@ -9,11 +9,11 @@ sys.stdin = open('input.txt')
 # def zmove(n,r,c):
 #     if n == 0: #n=1일땐 최종 2x2 z내부에서 방문순서임.
 #         return 0
-#     side = 2 ** (n - 1)  # 한 구역의 한 변의 길이
+#     side = p2 ** (n - 1)  # 한 구역의 한 변의 길이
 #     area = side * side  # 4구역 중 1 구역 칸 개수
 #     r1, r2 = divmod(r, side)  # 몫 기준구역 시작점
 #     c1, c2 = divmod(c, side)  # 나머지 기준구역 시작점 기준 현 위치
-#     s1 = area * (2 * r1 + c1)  # 기준 구역 시작점 값.
+#     s1 = area * (p2 * r1 + c1)  # 기준 구역 시작점 값.
 #     return s1 + zmove(n-1,r2,c2)
 # print(zmove(n,r,c))
 
@@ -24,4 +24,4 @@ def z(n,r,c):
 print(z(*map(int,input().split())))
 
 #백준 숏코딩 1등
-# n,r,c=[int(f'{int(z):b}',4)for z in input().split()];print(r*2+c)
+# n,r,c=[int(f'{int(z):b}',4)for z in input().split()];print(r*p2+c)

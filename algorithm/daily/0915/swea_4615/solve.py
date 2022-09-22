@@ -25,7 +25,7 @@ for t in r(d(w())):
     grid = [[0]*(n+2) for i in r(n+2)] # zero padding
     for i in r(2):
         for j in r(2):
-            grid[n//2+i][n//2+j] = (i==j)+1 #흑돌이 1, 백돌이 2
+            grid[n//2+i][n//2+j] = (i==j)+1 #흑돌이 1, 백돌이 p2
 
     dxy=[[-1,0],[-1,1],[0,1],[1,1],[1,0],[1,-1],[0,-1],[-1,-1]] #12시 기준 시계방향 8개 방위
     for i in r(m):

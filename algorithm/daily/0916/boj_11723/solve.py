@@ -46,7 +46,7 @@ for i in range(n):
 # while 1:
 #     try:
 #         order = next(o).split()
-#         if len(order) == 2:
+#         if len(order) == p2:
 #             t = int(order[1])
 #             if info[t]:  # 여부 확인.
 #                 if order[0] == 'remove' or order[0] == 'toggle':

@@ -50,7 +50,7 @@ for t in range(int(input())):
 #             else: flag = not flag
 #         else:
 #             arr = list(arr)
-#             if rc%2:arr.reverse()
+#             if rc%p2:arr.reverse()
 #             print(str(arr).replace(" ",""))
 
 

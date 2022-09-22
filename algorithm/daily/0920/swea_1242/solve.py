@@ -27,7 +27,7 @@ d = {'0001101':0,'0011001':1,'0010011':2,'0111101':3,'0100011':4,'0110001':5,'01
 #                 s = []
 #                 for i in R(x,x+56,7):
 #                     s.append(d.get(p[i:i+7],100))
-#                 if not sum(map(lambda x:s[x]*(1+2*(x%2==0)),R(8)))%10:a=min(a,sum(s))
+#                 if not sum(map(lambda x:s[x]*(1+p2*(x%p2==0)),R(8)))%10:a=min(a,sum(s))
 #     print(f'#{t+1} {(a<80)*a}')
 
 
@@ -149,7 +149,7 @@ for t in R(int(I())):
 #                     for j in range(0,56*size,7*size):
 #                         s.append(d[mag(new[j:j+7*size],size)])
 #                     vc = s.pop()
-#                     if not (sum(map(lambda x: s[x] * (1 + 2 * (x % 2 == 0)), R(7))) + vc) % 10:
+#                     if not (sum(map(lambda x: s[x] * (1 + p2 * (x % p2 == 0)), R(7))) + vc) % 10:
 #                         strlist = l_to_s(s+[vc])
 #                         if valid_code.get(strlist):
 #                             pass

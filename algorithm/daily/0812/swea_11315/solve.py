@@ -24,7 +24,7 @@ T = int(input())
 for t in range(1,T+1):# 완성된 오목이 있는지 판별
     n = int(input()) # nxn 크기 오목판 돌='o'(소문자 오)
     grid = [list(input()) for i in range(n)] # 빈 곳은 '.' (마침표)
-    #가능한 case 행,열, 대각선1,2
+    #가능한 case 행,열, 대각선1,p2
     grid1 = [[0]*(n-i)+grid[i]+[0]*i for i in range(n)]
     grid2 = [[0]*i+grid[i]+[0]*(n-i) for i in range(n)]
     checklist=[grid,zip(*grid), zip(*grid1), zip(*grid2)]

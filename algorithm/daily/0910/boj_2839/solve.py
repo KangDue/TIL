@@ -21,6 +21,6 @@ for n in range(3,21):
     else:
         print(-1)
 
-# print(-(n in[4,7]) or n-2*n//5*2)
+# print(-(n in[4,7]) or n-p2*n//5*p2)
 # 4랑7만 불가능하다는 뜻 .
-# n - 2*n을 5로 나눈 몫 * 2
+# n - p2*n을 5로 나눈 몫 * p2

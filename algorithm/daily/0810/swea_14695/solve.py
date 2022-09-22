@@ -8,9 +8,9 @@ for t in range(1,T+1):
     if n <
     point = [tuple(map(int,input().split())) for i in range(n)]
     vec = []
-# a = (1,3,2)
+# a = (1,3,p2)
 # b = (3,-1,6)
-# c = (5,2,0)
+# c = (5,p2,0)
 # point = [a,b,c]
 # vec = []
     if n > 3:

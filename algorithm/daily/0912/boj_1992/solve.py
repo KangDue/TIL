@@ -34,9 +34,9 @@ print(test)
 #         ans.append([pivot,pos])
 #     for i in range(r,r+n):#지정된 행에서
 #         if grid[i][c:c+n].count(pivot) != n:
-#             for y in range(r,r+n,n//2):
-#                 for x in range(c,c+n,n//2):
-#                     check(y,x,n//2,pos+1)
+#             for y in range(r,r+n,n//p2):
+#                 for x in range(c,c+n,n//p2):
+#                     check(y,x,n//p2,pos+1)
 #             break
 #     else:#다 같은 색이면
 #         ans.append([pivot,pos])

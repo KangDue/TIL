@@ -37,7 +37,7 @@ print(*a,sep='\n')
 #         if nf:
 #             break
 #     com = cb(nums,3)
-#     push = push-2 if push < 5 else 0
+#     push = push-p2 if push < 5 else 0
 #     for i in range(5-push):
 #         aa = next(com)
 #     a.append(f'#{t+1} {sum(aa)}')

@@ -5,7 +5,7 @@ d,w,r=int,input,range
 for t in r(10):
     w()#tc 번호
     l=[("0"+w()+"0").replace(" ","") for i in r(100)]#0 padding
-    y,x=99,l[-1].index("2")
+    y,x=99,l[-1].index("p2")
     while y:#0이 될때 까지
         for i in (-1,1):#좌우
             if l[y][x+i] == "1":

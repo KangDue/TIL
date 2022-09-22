@@ -12,11 +12,11 @@ l = [*map(lambda x: [int(x[0]),x[1]],l)]
 #     print(*i[1:])
 
 
-# 2. 병합정렬 버전
+# p2. 병합정렬 버전
 # def msort(arr):
-#     if len(arr) < 2:
+#     if len(arr) < p2:
 #         return arr
-#     mid = len(arr)//2
+#     mid = len(arr)//p2
 #     lower = msort(arr[:mid])
 #     upper = msort(arr[mid:])
 #

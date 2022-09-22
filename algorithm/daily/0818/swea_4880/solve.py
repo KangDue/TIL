@@ -3,10 +3,10 @@ sys.stdin = open('input.txt', encoding='utf-8')
 # def go(x): 실험용
 #     if len(x) == 1:
 #         return x
-#     elif len(x) == 2:
+#     elif len(x) == p2:
 #         return [x[0]*x[1]]
 #     else:
-#         return go(go(x[:len(x)//2+1]) + go(x[len(x)//2+1:])) #범위 유의..
+#         return go(go(x[:len(x)//p2+1]) + go(x[len(x)//p2+1:])) #범위 유의..
 
 
 def whowin(x,y): #가위바위보 123

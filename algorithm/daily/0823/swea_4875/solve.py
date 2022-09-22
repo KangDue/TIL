@@ -19,7 +19,7 @@ for t in range(int(input())):
     n = int(input())
     maze = [input() for i in range(n)]
     for i in range(n-1,-1,-1):# 2찾기
-        temp = maze[i].find('2')
+        temp = maze[i].find('p2')
         if temp > -1:
             s = [i,temp];break
     maze=[list(i) for i in maze]
@@ -33,7 +33,7 @@ for t in range(int(input())):
 #     maze = [input() for i in range(n)]
 #     s=e=0 #s = 2위치, e = 3위치
 #     for i in range(n-1,-1,-1):# 2찾기
-#         temp = maze[i].find('2')
+#         temp = maze[i].find('p2')
 #         if temp > -1:
 #             s = [i,temp];break
 #     for i in range(n):#3찾기

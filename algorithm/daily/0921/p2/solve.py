@@ -1,21 +1,24 @@
 import sys
 sys.stdin = open('input.txt')
 """
-부분집합 만들기
+6자리 숫자에 대해 완전검색을 활용하여
+baby-gin 해결해보자
+2개의 트리플렛(같은 숫자)
+2개의 런 (연속된 숫자) 면 1
+아니면 0
 """
-arr = [3,6,7,1,5,4]
-remain = True
-def subset(arr,ss=[],start=0,pivot=0,n=1):
-    global remain
-    if len(ss)==len(arr):remain=False;print(ss);return 1
-    elif pivot == len(arr):#n개씩 뽑는 기준점. 뽑는 개수 +1
-        return subset(arr, [], 0, 0, n + 1)
-    elif len(ss) == n: print(ss,start,pivot,n);return 1
-    if remain:
-        for i in range(start,len(arr)): #자신 다음번호부터 선택
-            subset(arr,ss+[arr[i]],i+1,pivot,n) #원소를 추가, 자기자신 제외 나머지 선택,
-            if i+1 == len(arr):  # pivot 기준
-                if n==1:
-                    return subset(arr, [], 0, 0, n+1)
-                return subset(arr, [], pivot+1, pivot + 1, n)
-subset(arr)
+# num  문자열 형태
+# brute force로 본다는건 baby gin인 모든 경우의 수를 본다는 이야기 ???
+import sys
+find = 0
+def bglist(nums='0123456789',case='',mine = '111123'): #판별할 숫자, 깊이, 런 트리플렛 카운트
+    global find
+    if len(case)==6:
+        if case == mine: find=1;return 1
+    elif find == 0:
+        for i in range(10):
+            bglist(nums,case+nums[i]*3)
+            if i<=7:
+                bglist(nums,case+nums[i:i+3])
+bglist()
+print(find)

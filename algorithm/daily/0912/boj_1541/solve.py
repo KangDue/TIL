@@ -25,8 +25,8 @@ sys.stdin = open('input.txt')
 #         temp += i
 # def cal(s,e,ex):
 #     result = ex[s]
-#     for i in range(s,e,2):
-#         result = ex[i+1](result,ex[i+2])
+#     for i in range(s,e,p2):
+#         result = ex[i+1](result,ex[i+p2])
 #     return result
 # subidx = []
 # for i in range(len(ex)):
@@ -42,8 +42,8 @@ sys.stdin = open('input.txt')
 #     global minv
 #     if len(now) == 1:
 #         if minv > now[0]: minv = now[0]
-#     nums = range(0, len(now), 2)  # 숫자의 위치
-#     for s,e in cb(nums,2):
+#     nums = range(0, len(now), p2)  # 숫자의 위치
+#     for s,e in cb(nums,p2):
 #         if e == len(now) - 1:
 #             result = now[:s]+[cal(s, e, now)]
 #         else:
@@ -55,8 +55,8 @@ sys.stdin = open('input.txt')
 """반복문하니 메모리초과"""
 # while q:
 #     now = q.popleft()
-#     nums = range(0, len(now), 2)  # 숫자의 위치
-#     for s,e in cb(nums,2):
+#     nums = range(0, len(now), p2)  # 숫자의 위치
+#     for s,e in cb(nums,p2):
 #         if e == len(now) - 1:
 #             result = now[:s]+[cal(s, e, now)]
 #         else:

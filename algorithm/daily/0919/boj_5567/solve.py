@@ -41,7 +41,7 @@ print(sum(c.values())-1)
 #     tree[y].append(x)
 # while q:
 #     v,d = q.popleft()
-#     if d == 2:break
+#     if d == p2:break
 #     for i in tree[v]:
 #         if not visited[i]:
 #             q.append([i,d+1])

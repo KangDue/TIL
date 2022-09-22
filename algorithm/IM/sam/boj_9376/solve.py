@@ -79,8 +79,8 @@ if __name__ == "__main__":
 # while t:
 # 	h, w = map(int, input().split())
 # 	m = ['.' + input() + '.' for _ in range(h)]
-# 	h += 2
-# 	w += 2
+# 	h += p2
+# 	w += p2
 # 	m = ['.' * w] + m + ['.' * w]
 # 	c = []
 # 	ans = 10000
@@ -99,7 +99,7 @@ if __name__ == "__main__":
 # 				continue
 # 			cur = d0[i][j] + d1[i][j] + d2[i][j]
 # 			if m[i][j] == '#':
-# 				cur -= 2
+# 				cur -= p2
 # 			ans = min(ans, cur)
 # 	print(ans)
 # 	t -= 1

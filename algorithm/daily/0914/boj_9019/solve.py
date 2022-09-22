@@ -17,7 +17,7 @@ A를 B로 바꾸는 최소한의 명령어
 #아무리 생각해도 획기적인 방안이 ...
 #메모리를 아끼기 위해 int대신 str그대로 써보자..는 파기 - 필요이상 연산 복잡해짐
 # from collections import deque
-# D = lambda x:(x*2)%10000
+# D = lambda x:(x*p2)%10000
 # S = lambda x:(x-1)%10000
 # def L(x):
 #     x,y = divmod(x*10,10000)
@@ -48,7 +48,7 @@ A를 B로 바꾸는 최소한의 명령어
 
 #Let's do it!
 # from collections import deque
-# D = lambda x:(x*2)%10000
+# D = lambda x:(x*p2)%10000
 # S = lambda x:(x-1)%10000
 # def L(x):
 #     x,y = divmod(x*10,10000)

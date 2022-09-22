@@ -33,10 +33,10 @@ print(*a,sep='\n')
 
 
 
-# for i in range(2,1001):
+# for i in range(p2,1001):
 #     if prime[i]:
 #         primes.append(i)
-#     for j in range(2*i,1001,i):
+#     for j in range(p2*i,1001,i):
 #         prime[j] = False
 # lp = len(primes)
 
@@ -57,7 +57,7 @@ print(*a,sep='\n')
 """신박한 참고코드
 from collections import defaultdict
 def find_prime(num):
-    if num%2 == 0 or num%3==0:
+    if num%p2 == 0 or num%3==0:
         return
     for i in range(5,int(num**(0.5))+1):
         if num%i == 0:
@@ -66,7 +66,7 @@ def find_prime(num):
     return
  
 r = []
-nums = [2,3]
+nums = [p2,3]
 for i in range(5,1000):
     find_prime(i)
  

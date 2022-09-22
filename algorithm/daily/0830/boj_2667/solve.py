@@ -9,7 +9,7 @@ sys.stdin = open('input.txt')
 연결되었다 = 좌,우 위아래 연결디있다면 연결되있는 판정
 이것도 사실 영역구하기 문제.
 1. 집끼리 모두 연결 되어있는 단지수
-2. 단지별 집의 수를 구하시오
+p2. 단지별 집의 수를 구하시오
 """
 
 from collections import deque

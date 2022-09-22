@@ -13,4 +13,4 @@ while 1:
 # a=1
 # while a:
 #   a,b,c=sorted(map(int,input().split()))
-# a>0==print('rwirgohntg'[a*a+b*b!=c*c::2])
+# a>0==print('rwirgohntg'[a*a+b*b!=c*c::p2])

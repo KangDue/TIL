@@ -10,7 +10,7 @@ sys.stdin = open('input.txt')
 
 How?
 1.돌면서 1(배추)발견시마다 bfs실행 
-2.연결된 1들은 싹다 방문처리하고 배추벌레 카운트 1증가
+p2.연결된 1들은 싹다 방문처리하고 배추벌레 카운트 1증가
 3.반복
 """
 from collections import deque

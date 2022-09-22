@@ -27,7 +27,7 @@ rgb거리에는 집이 n개 있다.
 #         if i != color:
 #             heapq.heappush(q,[step+1,value+house[step+1][i],i])
 
-# 방법 2. dp
+# 방법 p2. dp
 I=lambda:int(input())
 n = I() #집 수
 dp = [[0,0,0] for _ in range(n+1)]

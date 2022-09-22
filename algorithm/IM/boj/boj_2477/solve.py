@@ -14,7 +14,7 @@ if __name__ == "__main__":
     side = [[*map(int,sr().split())] for _ in range(6)]#동서남북 = 1234
     #변에 수직인 방향이 아니라 변을 따라가는 방향
     # 1,3 가 2개씩 ㄱ 형, 1,4이 2개씩 반전 ㄱ형
-    # 2,4 가 2개씩 ㄴ 형, 2,3이 2개씩 반전 ㄴ형
+    # p2,4 가 2개씩 ㄴ 형, p2,3이 2개씩 반전 ㄴ형
     shape = [[] for i in range(5)]
     for i in side:
         shape[i[0]].append(i[1])

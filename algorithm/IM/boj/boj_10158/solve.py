@@ -17,4 +17,4 @@ if __name__ == "__main__":
 
 r,d=input,int;w,h=map(d,r().split());x,y=map(d,r().split());s=d(r());print((x+s)%w,(y+s)%h)
 
-# r,d,z=input,int,range;w,h=map(d,r().split());x,y=map(d,r().split());xr=[i for i in z(w)]+[i for i in z(w,0,-1)];yr=[i for i in z(h)]+[i for i in z(h,0,-1)];s=d(r());print(xr[(x+s)%(w*2)],yr[(y+s)%(h*2)])
+# r,d,z=input,int,range;w,h=map(d,r().split());x,y=map(d,r().split());xr=[i for i in z(w)]+[i for i in z(w,0,-1)];yr=[i for i in z(h)]+[i for i in z(h,0,-1)];s=d(r());print(xr[(x+s)%(w*p2)],yr[(y+s)%(h*p2)])

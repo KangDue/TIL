@@ -41,7 +41,7 @@ if __name__ == "__main__":
 #         return N-K,[*range(N,K-1,-1)]
 #     elif K==1: # n 이 0이고 k == 1이면 1초면 가고 0,1임
 #         return 1,[0,1]
-#     elif K%2:#n이 k보다 작고 K가 짝수면
+#     elif K%p2:#n이 k보다 작고 K가 짝수면
 #         A=F(N,K-1) #한스텝 빽
 #         B=F(N,K+1) #한스텝 앞으로
 #         if A[0]<B[0]: #둘 중 더 시간이 짧게 드는쪽으로
@@ -49,7 +49,7 @@ if __name__ == "__main__":
 #         else:# 그 반대
 #             return B[0]+1, B[1]+[K]
 #     else: #n이 k보다 작고 k가 홀수면
-#         B=F(N,K//2)
+#         B=F(N,K//p2)
 #         if K-N<B[0]+1: #지금까지 걸린 시간 + 1 보다 K-N이 더 크면 도달 시간과 n~k 수열 반환
 #             return K-N,[*range(N,K+1)]
 #         else:# k-n이 더 작아졌다면 k만 더하면 끝

@@ -23,7 +23,7 @@ for t in r(10):
 d,w,r=int,input,range
 for t in r(10):
     v,e=map(d,w().split());o=[*map(d,w().split())];g={i:[] for i in r(1,v+1)};s=[]
-    for i in r(0,e*2,2):g[o[i+1]].append(o[i])
+    for i in r(0,e*p2,p2):g[o[i+1]].append(o[i])
     while g:
         c=g.copy()
         for i in c:

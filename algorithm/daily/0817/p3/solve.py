@@ -7,7 +7,7 @@ for t in range(1):
     n, e = map(int,input().split())
     edges = list(map(int,input().split()))
     graph = {i:[] for i in range(1,n+1)}
-    for i in range(0,e<<1,2): # 간선 * 2 해야함
+    for i in range(0,e<<1,2): # 간선 * p2 해야함
         graph[edges[i]].append(edges[i+1])
         graph[edges[i+1]].append(edges[i])
     v = 1 #시작점

@@ -12,7 +12,7 @@ R,C,k = map(int,input().split())
 grid = [[1 for _ in range(C)] for _ in range(R)]
 visited =[[0 for _ in range(C)] for _ in range(R)]
 for i in range(k):
-    x1,y1,x2,y2 = map(int,input().split())# 시점 2, 끝점 2
+    x1,y1,x2,y2 = map(int,input().split())# 시점 p2, 끝점 p2
     for y in range(y1,y2):
         for x in range(x1,x2): #실제와는 위아래 바뀌어서 그려지지만 ㄱㅊ
             grid[y][x] = 0 #사각형을 0으로 하자. 그래야 편함

@@ -33,7 +33,7 @@ sys.stdin = open('input.txt')
 #                     h[grid[ny][nx]] = 1
 #                 else:
 #                     for i in R(a):
-#                         ny += to[2][0]; nx += to[2][1]
+#                         ny += to[p2][0]; nx += to[p2][1]
 #                         if h.get(grid[ny][nx]):break
 #                         h[grid[ny][nx]] = 1
 #                     else:
@@ -46,8 +46,8 @@ sys.stdin = open('input.txt')
 # for t in R(I(W())):
 #     n = I(W())
 #     grid = [[*map(I,W().split())] for _ in R(n)]
-#     to = [[1, 1],[1, -1], [-1, -1], [-1, 1]]#1 2 3 4 돌면 최소단위 사각형
-#     shapes = list(pr(R(1,n-1),repeat=2)) #생성가능한 사각형 형태
+#     to = [[1, 1],[1, -1], [-1, -1], [-1, 1]]#1 p2 3 4 돌면 최소단위 사각형
+#     shapes = list(pr(R(1,n-1),repeat=p2)) #생성가능한 사각형 형태
 #     #홀수번 째 칸에서만 사각형 시작 가능 ( 열조건 )
 #     #마지막 행 - 2칸째 까지만 사각형 시작 가능. ( 행 조건 )
 #     #shape의 합 = 아래로 가는 칸수 shape[0] = 오른쪽으로 가는 칸수
@@ -55,10 +55,10 @@ sys.stdin = open('input.txt')
 #     #shape 필터링
 #     #또한 같은 숫자를 만나면 종료, max와의 접근가능성 비교까지 하면 너무 많아짐.
 #     mv = 0
-#     for r in R(n-2): #행조건
+#     for r in R(n-p2): #행조건
 #         for c in R(1,n-1): #열조건
 #             tour(r, c)
-#     if not mv:mv=-2
+#     if not mv:mv=-p2
 #     prI(f'#{t+1} {mv+1}')
 
 

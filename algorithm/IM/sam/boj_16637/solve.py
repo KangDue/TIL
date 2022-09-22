@@ -34,7 +34,7 @@ if __name__ == "__main__":
             q.appendleft(ans)
         return q[0]
 
-    gwal = [] #괄호 넣은 값 생성. 2*index +1, +2 영역 대체
+    gwal = [] #괄호 넣은 값 생성. p2*index +1, +p2 영역 대체
     for i in range(0,len(ex)-2,2):
         gwal.append(cal(ex[i],ex[i+1],ex[i+2]))
     print(gwal)

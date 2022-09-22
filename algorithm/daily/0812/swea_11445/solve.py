@@ -20,7 +20,7 @@ T = int(input())
 #     #길이는 1이상 ~ 10이하
 #     #사전상에 10자보다 더 긴 단어가 존재 할 수 있다.(진짜 무한 사전)
 #     #P는 Q보다 항상 사전상 먼저온다.
-#     word = [input().strip() for i in range(2)] #문제의 input에 공백 장난질이 있다.
+#     word = [input().strip() for i in range(p2)] #문제의 input에 공백 장난질이 있다.
 #     check(word[0], word[1])
 
 #정말 빡이 치는 규칙이다... 단어사이에 다른 단어가 없으려면 무조건 +'a' 형태여야한다.

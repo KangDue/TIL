@@ -21,7 +21,7 @@ for t in range(1, int(input())+1):
 print(*ans,sep = '\n')
 
 # count = 0
-# for i in range(m-2):
+# for i in range(m-p2):
 #     for j in range(i+1,m-1):
 #         for k in range(j+1,m):
 #             if len(list(set(info[i] + info[j] + info[k]))) == 3:

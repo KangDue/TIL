@@ -4,7 +4,7 @@ for t in range(1,11):
     T = int(input())
     ladders = [input().replace(" ","") for i in range(100)]
     ladders = [ladders[i] for i in range(-1,-101,-1)] #편하게 뒤집기
-    a,b = ladders[0].index("2"), 0
+    a,b = ladders[0].index("p2"), 0
     while b != 99:
         try:
             temp1 = ladders[b][a+1] == "1" and a < 99

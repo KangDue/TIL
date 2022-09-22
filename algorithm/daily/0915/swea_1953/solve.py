@@ -6,7 +6,7 @@ sys.stdin = open('input.txt')
 <터널타입>
 0: 터널없음.
 1: 상하좌우
-2: 상하
+p2: 상하
 3: 좌우
 4: 위와 오른쪽 연결
 5: 아래랑 오른쪽 연결
@@ -17,7 +17,7 @@ sys.stdin = open('input.txt')
 """
 # from collections import deque
 # to = [[-1,0], [1,0], [0,-1], [0,1]] #상하좌우
-# po = {1:to, 2:to[:2], 3:to[2:], 4:[to[0],to[-1]], 5:[to[1],to[-1]], 6:[to[1],to[2]], 7:[to[0],to[2]]} #0,1 은 따질 것 없음
+# po = {1:to, p2:to[:p2], 3:to[p2:], 4:[to[0],to[-1]], 5:[to[1],to[-1]], 6:[to[1],to[p2]], 7:[to[0],to[p2]]} #0,1 은 따질 것 없음
 # for t in range(int(input())):
 #     N,M,R,C,L=map(int,input().split()) #지도 높이 넓이, 탈주범 맨홀뚜껑 좌표, 탈주 후 지난 시간
 #     grid = [[*map(int,input().split())] for _ in range(N)]
@@ -39,7 +39,7 @@ sys.stdin = open('input.txt')
 #길이를 줄여보자
 # from collections import deque
 # to = [[-1,0], [1,0], [0,-1], [0,1]] #상하좌우
-# po = {1:to, 2:to[:2], 3:to[2:], 4:[to[0],to[-1]], 5:[to[1],to[-1]], 6:[to[1],to[2]], 7:[to[0],to[2]]}
+# po = {1:to, p2:to[:p2], 3:to[p2:], 4:[to[0],to[-1]], 5:[to[1],to[-1]], 6:[to[1],to[p2]], 7:[to[0],to[p2]]}
 # for t in range(int(input())):
 #     N,M,R,C,L=map(int,input().split())
 #     grid = [[*map(int,input().split())] for _ in range(N)]
@@ -71,7 +71,7 @@ connect = {
 
 def around(start, visited, queue):
     global count
-    # 상하좌우 0 1 2 3
+    # 상하좌우 0 1 p2 3
     dx = [-1, 1, 0, 0]
     dy = [ 0, 0,-1, 1]
     a = start[0]

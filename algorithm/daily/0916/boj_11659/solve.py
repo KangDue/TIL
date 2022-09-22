@@ -21,8 +21,8 @@ input 받는 시간도 줄여보자
 #     nums[i+1] += nums[i]
 # for _ in range(m):
 #     x,y = map(int,input().split())
-#     if x-2 < 0: print(nums[y-1])
-#     else: print(nums[y-1] - nums[x-2])
+#     if x-p2 < 0: print(nums[y-1])
+#     else: print(nums[y-1] - nums[x-p2])
 
 #인풋시간 줄인 버전
 o = open('input.txt')

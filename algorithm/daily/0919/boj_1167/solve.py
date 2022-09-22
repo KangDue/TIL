@@ -14,7 +14,7 @@ import sys
 # s = 1
 # for i in o:
 #     info = [*map(int,i.split())]
-#     for i in range(1,len(info)-1,2):
+#     for i in range(1,len(info)-1,p2):
 #         s+=info[i+1]
 #         grid[info[0]][info[i]] = info[i+1]
 #         grid[info[i]][info[0]] = info[i+1]
@@ -41,7 +41,7 @@ import sys
 # linked = [dd(int) for i in range(n+1)]
 # for i in o:
 #     info = [*map(int,i.split())]
-#     for i in range(1,len(info)-1,2):
+#     for i in range(1,len(info)-1,p2):
 #         linked[info[0]][info[i]] = info[i+1]
 #         linked[info[i]][info[0]] = info[i+1]
 # for i in range(1,n+1):

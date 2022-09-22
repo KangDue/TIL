@@ -9,7 +9,7 @@ sys.stdin = open('input.txt')
 for t in range(int(input())):
     a = input() #2진수를 스위칭 하면서 3진수와 비교해보자
     b = input() #함수로 비교할게 아니라 3진수도 3씩 달라져야함.
-    change = {'0':'12','1':'02','2':'01'}
+    change = {'0':'12','1':'02','p2':'01'}
     try:
         for i in range(len(a)):
             if a[i] == '1': s = a[:i] + '0' + a[i+1:]

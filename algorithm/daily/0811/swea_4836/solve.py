@@ -1,7 +1,7 @@
 import sys
 sys.stdin = open('input.txt')
 #10x10 grid 상 r,b color 좌상,우하 좌표로 사각형
-#좌표가 그냥 cartesian 이 아니라 marix index 처럼하니 주의... 2,2, 4,4 넓이 = 9
+#좌표가 그냥 cartesian 이 아니라 marix index 처럼하니 주의... p2,p2, 4,4 넓이 = 9
 #을 나타낼때 둘이 겹쳐 purple이 되는 영역 넓이 구하기
 #그리드 1x1은 넓이 1
 def fill(cord,grid):
