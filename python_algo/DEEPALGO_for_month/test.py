@@ -166,8 +166,24 @@ def binary_search(arr,low,high,x):
 
 temp = [1,2,3,6,8,9,11,15,26,30]
 print(binary_search(temp,0,len(temp),26))
-
-
+print("-----------")
+v=13
+ip = '1 2 1 3 2 4 3 5 3 6 4 7 5 8 5 9 6 10 6 11 7 12 11 13'
+tree = [[0,0] for _ in range(v+1)]
+ip = [*map(int,ip.split())]
+for i in range(0,v-1,2):
+    if tree[ip[i]][0]:
+        tree[ip[i]][1] = ip[i+1]
+    else:
+        tree[ip[i]][0] = ip[i+1]
+def preorder(x):
+    print(x,end=' ')
+    if tree[x][0]:
+        preorder(tree[x][0])
+    if tree[x][1]:
+        preorder(tree[x][1])
+preorder(1)
+    
 
 
 
