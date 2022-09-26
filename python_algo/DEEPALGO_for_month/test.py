@@ -1,3 +1,4 @@
+print("제네레이터")
 def a(arr,r):
     for i in range(len(arr)):
         if r == 1:
@@ -12,6 +13,7 @@ def a(arr,r):
 for i in a([1,2,3,4],3):
     print(i)
 print("------------")
+print("bit 부분집합")
 arr = [1,2,3,4,5]
 #binary를 이용한 부분집합 만들기
 for i in range(1<<len(arr)):
@@ -21,7 +23,7 @@ for i in range(1<<len(arr)):
             temp.append(arr[j])
     print(temp)
 print("------------")
-
+print("my origin 부분집합")
 subset = []
 arr = [3,6,7,1,5,4]
 remain = True
@@ -45,7 +47,7 @@ def subset(box=[],start=0,pivot=0,n=1):
                 return subset([], pivot+1, pivot + 1, n)
 subset()
 print("------------")
-
+print("comb와 섞은 부분집합")
 def comb(r,idx=0,box = []):
     global arr
     if r == 0:
@@ -58,6 +60,7 @@ def subset2():
         comb(i)
 subset2()
 print("------------")
+print("백트래킹 부분집합.")
 temp = []
 def subset3(k=0):
     global temp
@@ -71,7 +74,9 @@ def subset3(k=0):
 subset3()
 
 print("------------")
+print("백트래킹 순열")
 temp = []
+arr =[1,2,3]
 visited = [0]*len(arr)
 def permu(r=0):
     if r == len(arr):
@@ -83,10 +88,12 @@ def permu(r=0):
                 visited[i] = 1
                 temp.append(arr[i])
                 permu(r+1)
-                visited[i] = 0
                 temp.pop()
+                visited[i] = 0
+
 permu()
 print("-----------")
+print("그리디 베이비 진")
 problem = "123111"
 count = [0]*10
 for i in problem:
@@ -110,7 +117,7 @@ if run+tri == 2:
 else:
     print("LOSE")
 print("-----------")
-
+print("병합정렬")
 def msort(arr):
     length = len(arr)
     if length <= 1:
@@ -134,7 +141,7 @@ def msort(arr):
 print(msort([3,1,6,4,2,7]))
 
 print("-----------")
-
+print("퀵정렬")
 def qsort(arr):
     if len(arr) <= 1:
         return arr
@@ -152,7 +159,7 @@ def qsort(arr):
 print(qsort([3,1,6,4,2,7]))
 
 print("-----------")
-
+print("이진탐색")
 def binary_search(arr,low,high,x):
     mid = (low+high)//2
     while low < high:
@@ -167,6 +174,7 @@ def binary_search(arr,low,high,x):
 temp = [1,2,3,6,8,9,11,15,26,30]
 print(binary_search(temp,0,len(temp),26))
 print("-----------")
+print("전위순회")
 v=13
 ip = '1 2 1 3 2 4 3 5 3 6 4 7 5 8 5 9 6 10 6 11 7 12 11 13'
 tree = [[0,0] for _ in range(v+1)]
@@ -184,8 +192,32 @@ def preorder(x):
         preorder(tree[x][1])
 preorder(1)
     
-
-
+print("\n-----------")
+print("재귀 선택정렬")
+arr = [3,5,1,2,4]
+def selection_sort(n,idx=0):
+    global arr
+    if idx == n:
+        return 0
+    mindex = idx
+    for i in range(idx,len(arr)):
+        if arr[mindex] > arr[i]:
+            mindex = i
+    if idx != mindex:
+        arr[idx], arr[mindex] = arr[mindex] , arr[idx]
+    selection_sort(n,idx+1)
+selection_sort(5)
+print(arr)
+print("-----------")
+def permu2(n,k):
+    if n == k:
+        print(arr)
+    else:
+        for i in range(n,k):
+            arr[n],arr[i] = arr[i],arr[n]
+            permu2(n+1,k)
+            arr[n], arr[i] = arr[i], arr[n]
+permu2(0,5)
 
 
 
