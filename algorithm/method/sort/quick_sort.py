@@ -34,9 +34,9 @@ def quick_sort_2(x):
         pivot = x[-1]#호어법은 아니고 편하게 다양한 값 쓰기
         lower,same,upper = [],[],[]
         for i in x:
-            if x<pivot:
+            if i < pivot:
                 lower.append(i)
-            elif x>pivot:
+            elif i > pivot:
                 upper.append(i)
             else:
                 same.append(i)
@@ -47,3 +47,26 @@ print(quick_sort_2(a))
 # 이미 정렬된 녀석의 맨앞 값을 pivot으로 삼으면 최악이 되기도함.
 # 그래서 평균적인 시간을 보장해 주기위해 라이브러리는 pivot 값 선정 알고리즘이 따로 있음
 # 추가로 여러 정렬을 섞어 쓰기도 함.
+
+
+def qs(x,s,e): #배열과, 시작점, 끝점(index)
+    if s >= e: #배열 1개남을때.
+        return 0
+    pivot = s
+    left = s+1
+    right = e
+
+    while left <= right: #교차할 때 까지 !!! (조건문 잘 보자)
+        while left <= e and x[left] <= x[pivot]: #유효 범위 left이고 pivot 보다 큰값을 만날 때 까지
+            left += 1
+        while right > s and x[right] >= x[pivot]: #유효 범위 right이고 pivot 보다 작은 값을 만날 때 까지 (pivot index 제외)
+            right -= 1
+        if left > right: #교차 하면
+            x[right] , x[pivot] = x[pivot] , x[right]
+        else:
+            x[right],x[left] = x[left], x[right]
+    #정렬이 한 파티션에서 끝나면 pivot이 right의 위치로 이동함.
+    qs(x,s,right-1) #따라서 left는 pivot 1개 아래
+    qs(x,right+1,e) #right는 pivot 1개 위
+    return x
+print(qs([4,6,7,1,2,3],0,5))

@@ -7,14 +7,14 @@ sys.stdin = open('input.txt')
 1번출발 n번 종점.
 마지막 정류장은 배터리가 없다.
 """
-def go(c=0,now=1,path=[1]):
+def go(c=0,now=1):
     global minv,station
     if now + station[now] >= n:
         minv = min(minv,c)
         return 0
     for i in range(now+1,now+1+station[now]): #현재 위치에서 갈 수 있는 곳.
         if c < minv:
-            go(c+1,i,path+[i])
+            go(c+1,i)
 
 
 for t in range(int(input())):
