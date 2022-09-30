@@ -14,26 +14,45 @@ NxN 새집에서 행열번호는 1부터 시작
 70% 시간초과.
 87% 시간초과
 """
+
 import sys
-to = [[1,0],[0,1],[1,1]]#상태 0,1,2로 구분 (아래,오른쪽, 대각선)
+#dfs 풀이
+# to = [[1,0],[0,1],[1,1]]#상태 0,1,2로 구분 (아래,오른쪽, 대각선)
+# n = int(sys.stdin.readline())
+# grid = [['0']*(n+1)] + [['0']+[*sys.stdin.readline().split()]+['0'] for _ in range(n)] + [['0']*(n+1)]
+# tot = 0
+# def check(r=1,c=2,direct=1):#초기위치
+# 	global tot
+# 	for i in range(3):
+# 		if not direct and i==1: continue
+# 		if direct == 1 and not i: continue
+# 		if i == 2 and (grid[r+1][c]=='1' or grid[r][c+1]=='1'): continue
+# 		ny = r + to[i][0];nx = c + to[i][1]
+# 		if ny <= n and nx <= n and grid[ny][nx]=='0': # 일단 적어도 가는곳은 벽이면 안됨.
+# 			if ny == n and nx == n:
+# 				tot+=1
+# 				return 0
+# 			else:
+# 				check(ny,nx,i)
+# check()
+# print(tot)
+
+
+#dp 풀이
+import sys
 n = int(sys.stdin.readline())
-grid = [[0]*(n+1)] + [[0]+[*sys.stdin.readline().split()] for _ in range(n)]
-tot = 0
-def check(r=1,c=2,direct=1):#초기위치
-	global tot
-	for i in range(3):
-		if not direct and i==1: continue
-		if direct == 1 and not i: continue
-		ny = r + to[i][0];nx = c + to[i][1]
-		if ny <= n and nx <= n and grid[ny][nx]=='0': # 일단 적어도 가는곳은 벽이면 안됨.
-			if i == 2:#대각선이면 우,하 추가로 확인
-				if r+1 <= n and grid[r+1][c]=='1':
-					continue
-				if c+1 <= n and grid[r][c+1]=='1':
-					continue
-			if ny == n and nx == n:
-				tot+=1
-			else:
-				check(ny,nx,i)
-check()
-print(tot)
+grid = [[*sys.stdin.readline().split()] for _ in range(n)]
+dp  = [[[0]*3 for _ in range(n)] for _ in range(n)]
+dp[0][1][1] = 1
+for i in range(n):
+	for j in range(2,n):
+		if grid[i][j] == '1': continue
+		if (1<=i and grid[i-1][j] =='1') or (grid[i][j-1] == '1'):
+			dp[i][j][0] = dp[i - 1][j][0] + dp[i - 1][j][2]
+			dp[i][j][1] = dp[i][j - 1][1] + dp[i][j - 1][2]
+		else:
+			dp[i][j][0] = dp[i - 1][j][0] + dp[i - 1][j][2]
+			dp[i][j][1] = dp[i][j - 1][1] + dp[i][j - 1][2]
+			dp[i][j][2] = sum(dp[i-1][j-1])
+# print(*dp,sep='\n')
+print(sum(dp[n-1][n-1]))
