@@ -8,7 +8,7 @@ G = [[[1,32],[2,31],[5,60],[6,51]],
      [[0,60],[3,18],[4,40]],
      [[0,51],[4,51]]]
 
-
+#선형 탐색,
 def prim(G,start):
     value = [INF] * N
     pair = [None] * N
@@ -33,7 +33,29 @@ def prim(G,start):
     print(value)
 
 prim(G,0)
+import heapq
+def hprim(G,start):
+    global N
+    weights = [INF] * N
+    pairs = [None] * N
+    visited = [0] * N
+    weights[start] = 0
+    q = [[0,start]]
+    while N > 1:
+        value, min_node = heapq.heappop(q)
+        if not visited[min_node]:
+            visited[min_node] = 1
+            N -= 1
+            for nv,cost in G[min_node]:
+                if not visited[nv] and cost < weights[nv]:
+                    weights[nv] = cost
+                    pairs[nv] = min_node
+                    heapq.heappush(q,(cost,nv))
+    print(pairs)
+    print(weights)
+hprim(G,0)
 
+#---------------------------------------------------------------
 nG = [
     [0,1,32],
     [0,2,31],
