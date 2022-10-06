@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ article.pk }} 번 글 세부사항</h1>
+<p>제목: {{ article.title }}</p>
+<p>내용: {{ article.content}}</p>
+<p>작성시각: {{ article.maked }}</p>
+<p>최종 수정시각: {{ article.revised }}</p>
+<br>
+<form action="{% url 'articles:delete' article.pk %}" method="POST">
+{% csrf_token %}
+{% comment %} {% if request.user == article.user %} {% endcomment %}
+<input type="submit" value="삭제">
+{% comment %} {% endif %} {% endcomment %}
+</form>
+<hr>
+<a href="{% url 'articles:index' %}">뒤로가기</a>
+<hr>
+<p>---댓글---</p>
+<form action="{% url 'articles:comment_create' article.pk %}" method="POST">
+  {% csrf_token %}
+  {{ comment_form.as_p }}
+  <input type="submit" value="댓글 달기">
+</form>
+<hr>
+{% for comment in comments %}
+<p>{{ comment.content }} - {{ comment.maked }}
+  <form action="{% url 'articles:comment_delete' article.pk comment.pk %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value='x'>
+  </form></p>
+{% endfor %}
+{% endblock content %}
