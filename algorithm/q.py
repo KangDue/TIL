@@ -1,22 +1,62 @@
-c=0
-def sep(start,end,h=0):
-    global minv, pivot,a,b
-    if h > pivot:
-        return -1
-    if start<= a <= end and start<= b <= end:
-        minv = min(minv,pivot-h)
-    sep(start,end//2,h+1)
-    sep(end//2+1,end,h+1)
+import sys
+sys.stdin = open('input.txt')
+R,C,K = map(int,input().split())
+grid = [-1]*(C+2) + sum([[-1]+[*map(int,input())]+[-1] for _ in range(R)],[])+[-1]*(C+2)
+C+=2
 
-for a in range(1,11):
-    for b in range(1,11):
-        N = 1<<(max(a,b)).bit_length()
-        pivot = (N - 1).bit_length()
-        minv = (N - 1).bit_length()
-        sep(1, N, h=0)
-        t1 = minv
-        t2 = ((a-1)^(b-1)).bit_length()
-        print(minv,t2)
-        if t1!=t2:
-            c +=1
-print(c)
+GOAL = (R+1)*C -2 # 도착지
+
+INF = int(1e9)
+visited = [INF]*C
+for i in range(R):
+    visited += [INF] + [0]*(C-2) + [INF] #좌우 패딩
+visited += [INF]*C
+
+#시작점을 벽을 깬 횟수로 하는데 왜 2로할까???
+visited[C+1] = INF#둘 째 행의 둘째 열 = 시작 점.
+
+q = [(C+1,K+1)]# 시작점, 벽을 깰 수 있는 횟수
+step = 1 #step
+mode = 1 # 1은 낮, 0은 밤.
+while visited[GOAL] == 0 and q:
+    new = []
+    for pos,can in q:
+        if visited[pos-1] < can:
+            if not mode and grid[pos-1]: #밤 이고 벽일때 만 pass
+                pass
+            else:
+                visited[pos-1] = can
+                new.append((pos-1,can-grid[pos-1])) # grid가 벽이어야 1빼고 아니면 그대로
+
+        if visited[pos+1] < can:
+            if not mode and grid[pos+1]: #밤 이고 벽일때 만 pass
+                pass
+            else:
+                visited[pos+1] = can
+                new.append((pos+1,can-grid[pos+1]))
+
+        if visited[pos-C] < can:
+            if not mode and grid[pos-C]: #밤 이고 벽일때 만 pass
+                pass
+            else:
+                visited[pos-C] = can
+                new.append((pos-C,can-grid[pos-C]))
+
+        if visited[pos+C] < can:
+            if not mode and grid[pos+C]: #밤 이고 벽일때 만 pass
+                pass
+            else:
+                visited[pos+C] = can
+                new.append((pos+C,can-grid[pos+C]))
+        if not mode: #밤이면 대기하는거 추가
+            visited[pos] = can
+            new.append((pos, can))
+    step += 1
+    q = new
+    mode = not mode
+
+if not visited[GOAL]:
+    print(-1)
+else:
+    print(step)
+x = int(0)
