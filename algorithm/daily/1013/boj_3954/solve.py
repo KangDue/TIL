@@ -16,33 +16,25 @@ Brainf**k 이 프로그램이 끝나는지. 무한루프에 빠지는지?
 import sys,time
 sys.stdin = open('input.txt')
 st = time.time()
+
 pair = {'[':']', ']':'['}
-# def find_pair(idx,f):
-#     stack = [f]
-#     if f == '[':
-#         while stack:
-#             idx += 1
-#             if code[idx] == f:
-#                 stack.append(f)
-#             elif code[idx] == pair[f]:
-#                 stack.pop()
-#     elif f == ']':
-#         while stack:
-#             idx -= 1
-#             if code[idx] == f:
-#                 stack.append(f)
-#             elif code[idx] == pair[f]:
-#                 stack.pop()
-#     return idx
-
-def find_pair(sp):
-    for i in range(cs):
-        if code[i] == '[':
-            sp += 1
-            stack[sp] = i
-        if code[i] ==']':
-            pair_dict[i] = stack[sp]
-
+def find_pair(idx,f):
+    stack = [f]
+    if f == '[':
+        while stack:
+            idx += 1
+            if code[idx] == f:
+                stack.append(f)
+            elif code[idx] == pair[f]:
+                stack.pop()
+    elif f == ']':
+        while stack:
+            idx -= 1
+            if code[idx] == f:
+                stack.append(f)
+            elif code[idx] == pair[f]:
+                stack.pop()
+    return idx
 
 for t in range(int(input())):
     ms,cs,isize = map(int,input().split()) #메모리, 코드크기, 입력크기
@@ -51,24 +43,30 @@ for t in range(int(input())):
     text = input() #읽을 문자열
     p = 0 #포인터
     pair_dict = {}
-    # for i in range(cs):
-    #     if code[i]=='[':
-    #         temp = find_pair(i,'[')
-    #         pair_dict[i] = temp
-    #         pair_dict[temp] = i
+    for i in range(cs):
+        if code[i]=='[':
+            temp = find_pair(i,'[')
+            pair_dict[i] = temp
+            pair_dict[temp] = i
     cnt = 0
-    idx = ddx = 0  # 코드위치
-    mcode = 0  # 최대 코드 인덱스
-    stack = [0]*5000
-    stack_pos = [0]*5000
-    sp = 0
+    idx = 0  # 코드위치
+    mindex = maxdex = 0  # 최대 코드 인덱스
+    ddx = 0
+    cnt = 0
     while idx < cs:
         cnt += 1
+        if cnt == 50000000:
+            mindex = maxdex = idx
+        if cnt > 50000000:
+            mindex = min(mindex,idx)
+            maxdex = max(maxdex,idx)
         if code[idx] == '-':
+            # arr[p] = (arr[p] - 1) % (1 << 8)
             arr[p] -= 1
             if arr[p] == -1:
                 arr[p] = 255
         elif code[idx] == '+':
+            # arr[p] = (arr[p] + 1) % (1 << 8)
             arr[p] += 1
             if arr[p] == 256:
                 arr[p] = 0
@@ -76,17 +74,18 @@ for t in range(int(input())):
             p -= 1
             if p == -1:
                 p = ms -1
+            # p = (p - 1) % ms
         elif code[idx] == '>':
             p += 1
             if p == ms:
                 p = 0
+            # p = (p + 1) % ms
         elif code[idx] == '[':
             if not arr[p]:
-                idx = pair_dict[idx]
+                idx = pair_dict[idx] # 짝 괄호 다음 코드부터 시작
         elif code[idx] == ']':
             if arr[p]:
-                idx = pair_dict[idx]
-                stack_pos[sp-1] = cnt
+                idx = pair_dict[idx]#전 괄호 다음 코드부터 시작.
         elif code[idx] == '.': #가리키는 수 출력
             pass
         elif code[idx] == ',': #읽고 포인터 위치에 저장
@@ -96,9 +95,8 @@ for t in range(int(input())):
             else:
                 arr[p] = 255
         idx += 1
-        mcode = max(mcode, idx)
-        if cnt >= 50000000:
-            print(f'Loops {pair_dict[mcode]} {mcode}')
+        if cnt > 100000000:
+            print(f'Loops {mindex-1} {maxdex}')
             break
     else:
         print("Terminates")
