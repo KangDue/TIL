@@ -1,0 +1,2 @@
+#export PATH=/c/Users/rkdrl/AppData/Local/Programs/Python/Python39/Scripts/:$PATH
+#PATH=/c/Users/rkdrl/AppData/Local/Programs/Python/Python39:$PATH
