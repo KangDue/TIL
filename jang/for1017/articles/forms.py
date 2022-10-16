@@ -1,4 +1,4 @@
-from django.forms import forms
+from django import forms
 from .models import Article,Comment
 
 class ArticleForm(forms.ModelForm):
@@ -11,6 +11,6 @@ class CommentForm(forms.ModelForm):
     
     class Meta:
         model = Comment
-        fields = '__all__'
-        exclude = ('user','article') # form에 받을 필요 없음.
+        # fields = '__all__'
+        exclude = ('user','articles') # form에 받을 필요 없음.
         

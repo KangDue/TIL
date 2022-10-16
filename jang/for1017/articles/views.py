@@ -41,7 +41,7 @@ def detail(request,pk):
         'comment_form':comment_form,
         'comments':comments,
     }
-    return render(request,'articles:detail.html',context)
+    return render(request,'articles/detail.html',context)
 
 @require_POST
 def delete(request, pk):
@@ -57,7 +57,7 @@ def delete(request, pk):
 def update(request,pk):
     article = Article.objects.get(pk=pk)
     if request.method ==  "POST":
-        form = ArticleForm(request.POST)
+        form = ArticleForm(request.POST,instance=article)
         if form.is_valid():
             form.save()
             return redirect('articles:detail',article.pk)
@@ -77,7 +77,7 @@ def comments_create(request,pk):
         comment_form = CommentForm(request.POST)
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
-            comment.article = article
+            comment.articles = article
             comment.user = request.user
             comment.save()
         return redirect('articles:detail',article.pk)
@@ -89,12 +89,12 @@ def comments_delete(request,article_pk,comment_pk):
         comment = Comment.objects.get(pk = comment_pk)
         if request.user == comment.user:
             comment.delete()
-    return redirect('articles:detial',article_pk)
+    return redirect('articles:detail',article_pk)
 
 
 @require_POST
 def likes(request,article_pk):
-    if request.uesr.is_authenticated:
+    if request.user.is_authenticated:
         article = Article.objects.get(pk=article_pk)
         if article.like_users.filter(pk=request.user.pk).exists():
             article.like_users.remove(request.uesr)

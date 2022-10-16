@@ -1,4 +1,3 @@
-from distutils.text_file import TextFile
 from django.db import models
 from django.conf import settings
 # Create your models here.
@@ -19,4 +18,3 @@ class Comment(models.Model):
     
     def __str__(self):
         return self.content
-
