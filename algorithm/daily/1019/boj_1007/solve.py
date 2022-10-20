@@ -9,24 +9,28 @@ import sys
 
 o = open('input.txt')
 from math import sqrt
+from itertools import combinations as cb
 def vec(arr):
     global minv
-    a=b=0
-    for i in range(0,N,2):
-        y1, x1 = arr[i]
-        y2, x2 = arr[i+1]
-        a += y2-y1
-        b += x2-x1
-    minv = min(minv, a*a + b*b)
+    nx,ny = x,y
+    for c,d in arr:
+        nx -= 2*c
+        ny -= 2*d
+    minv = min(minv,sqrt(nx*nx + ny*ny))
 
-from itertools import permutations as pm
 ans = []
 for t in range(int(next(o))):
     N = int(next(o))
-    nums = [[*map(int,next(o).split())] for _ in range(N)]
+    nums = []
+    x=y=0
+    for _ in range(N):
+        a,b = map(int,next(o).split())
+        x += a
+        y += b
+        nums.append([a,b])
     minv = int(1e9)
-    for arr in pm(nums,N):
+    for arr in cb(nums,N//2):
         vec(arr)
-    ans.append(sqrt(minv))
-print(*ans)
-
+    ans.append(minv)
+print(*ans,sep='\n')
+# N개 전체를 순열로 돌리지 말고 처음부터 total을 구한뒤 n//2만 뺀다
