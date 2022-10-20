@@ -8,31 +8,25 @@ import sys
 # sys.stdin = open('input.txt')
 
 o = open('input.txt')
-from itertools import combinations as cb
 from math import sqrt
-def vec(p1,p2):
-    return p2[0]-p1[0],p2[1]-p1[0]
+def vec(arr):
+    global minv
+    a=b=0
+    for i in range(0,N,2):
+        y1, x1 = arr[i]
+        y2, x2 = arr[i+1]
+        a += y2-y1
+        b += x2-x1
+    minv = min(minv, a*a + b*b)
 
+from itertools import permutations as pm
+ans = []
 for t in range(int(next(o))):
     N = int(next(o))
     nums = [[*map(int,next(o).split())] for _ in range(N)]
     minv = int(1e9)
-    visited = [0]*N
-    #한 벡터에서 시작해서 다른 벡터로 끝나는 벡터 들의 집합!
-    def dfs(count = 0, a=0, b=0, before=[]):
-        global minv,N,visited
-        if count == N:
-            minv = min(minv,sqrt(a*a+b*b))
-            return 0
-        for i in range(N):
-            if not visited[i]:
-                visited[i] = 1
-                if count%2:#홀수
-                    c,d = vec(before,nums[i])
-                    dfs(count + 1,a + c, b + d)
-                else:
-                    dfs(count + 1, a, b, nums[i])
-                visited[i] = 0
+    for arr in pm(nums,N):
+        vec(arr)
+    ans.append(sqrt(minv))
+print(*ans)
 
-    dfs()
-    print(minv)
