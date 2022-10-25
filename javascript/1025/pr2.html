@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>요일</h3>
+  <ul id="day">
+    <li>월요일</li>
+    <li>화요일</li>
+    <li>수요일</li>
+    <li>목요일</li>
+    <li>금요일</li>
+  </ul>
+
+  <script>
+    // code here
+    let sat = document.createElement('li')
+    sat.innerText='토요일'
+    document.querySelector('ul')
+    .append(sat)
+    let sun = document.createElement('li')
+    sun.innerText='일요일'
+    document.querySelector('ul')
+    .prepend(sun)
+    let p = document.createElement('p')
+    p.innerText = 'start'
+    document.querySelector('ul').before(p)
+
+  </script>
+</body>
+</html>

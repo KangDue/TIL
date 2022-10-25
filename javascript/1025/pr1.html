@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p id="number">0</p>
+  <buttond id="minus" style="border: 5px solid red;">MINUS</buttond>
+  <buttond id="plus" style="border: 5px solid green;">PLUS</buttond>
+
+  <script>
+    // 코드 작성
+    let p = document.querySelector('p')
+    let val = parseInt(p.innerText)
+    document.getElementById('minus').addEventListener('click',function(event) {
+      val--
+      p.innerText = val
+    })
+    document
+    .getElementById('plus')
+    .addEventListener('click',function(event) {
+      val++
+      p.innerText = val
+    })
+  </script>
+</body>
+</html>
