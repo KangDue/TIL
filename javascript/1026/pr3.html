@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        let movies
+        let h1 = document.createElement('h1')
+        let ul = document.createElement('ul')
+        let conti = 1
+        h1.innerText = "인기 영화들"
+        document.body.append(h1,ul)
+
+        function find_hotmovie(num) {
+            axios({
+                method : 'get',
+                url : 'https://api.themoviedb.org/3/movie/popular?api_key=a03bd8d9551d9595995b252e6c1134d9&language=ko-KR&page='+num.toString()
+            })
+            .then((response) => {
+                console.log(response.data.results[0].vote_average)
+                movies = response.data.results
+                response.data.results.forEach((val,key) => {
+                    console.log(val.title,val.vote_average)
+                    if (val.vote_average >= 8){
+                        let li = document.createElement('li')
+                        li.innerText = val.title
+                        ul.appendChild(li)
+                    }
+                })
+                return response
+            })
+            .catch((response) => {conti = 0})
+        }
+
+        
+        let i = 1
+        setInterval(() => {
+            if (conti) {
+                find_hotmovie(i++)
+            }
+            console.log(i)
+        },100)
+
+
+        
+    </script>
+</body>
+</html>
