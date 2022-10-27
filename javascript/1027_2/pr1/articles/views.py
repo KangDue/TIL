@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from .models import Article, Comment
 from .forms import ArticleForm, CommentForm
+from .serializers import *
 
 # Create your views here.
 @require_safe
@@ -83,13 +84,16 @@ def update(request, pk):
 def comments_create(request, pk):
     if request.user.is_authenticated:
         article = get_object_or_404(Article, pk=pk)
-        comment_form = CommentForm(request.POST)
-        if comment_form.is_valid():
-            comment = comment_form.save(commit=False)
-            comment.article = article
-            comment.user = request.user
-            comment.save()
-        return redirect('articles:detail', article.pk)
+        print(0000000000000000000000000000,request,00000000000000000000000000000000000000000)
+        cs = CommentSerializer(data=request.POST)
+        if cs.is_valid(raise_exception=True):
+            cs.save(commit=False)
+            cs.article = article
+            cs.user = request.user
+            cs.save()
+            context = {'cs':cs}
+            print(context)
+            return JsonResponse(context)
     return redirect('accounts:login')
 
 
@@ -104,5 +108,17 @@ def comments_delete(request, article_pk, comment_pk):
 
 @require_POST
 def likes(request, article_pk):
-    # CODE HERE
-    pass
+    if request.user.is_authenticated:
+        article = get_object_or_404(Article, pk=article_pk)
+        if article.like_users.filter(pk=request.user.pk).exists():
+            article.like_users.remove(request.user)
+            liked = False
+        else:
+            article.like_users.add(request.user)
+            liked = True
+        context = {
+            'liked': liked,
+            'count': article.like_users.count(),
+        }
+        return JsonResponse(context)
+    return redirect('accounts:login')

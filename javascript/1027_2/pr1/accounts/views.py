@@ -10,6 +10,7 @@ from django.views.decorators.http import require_http_methods, require_POST
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
+from django.http import JsonResponse
 from .forms import CustomUserChangeForm, CustomUserCreationForm
 
 # Create your views here.
@@ -109,5 +110,22 @@ def profile(request, username):
 
 @require_POST
 def follow(request, user_pk):
-    # CODE HERE
-    pass
+    if request.user.is_authenticated:
+        person = get_object_or_404(get_user_model(), pk=user_pk)
+        if person != request.user:
+            if person.followers.filter(pk=request.user.pk).exists():
+            # if request.user in person.followers.all():
+                person.followers.remove(request.user)
+                isFollowed = False
+            else:
+                person.followers.add(request.user)
+                isFollowed = True
+        context = {
+            'isFollowed': isFollowed,
+            'followers_count':person.followers.count() , 
+            'followings_count':person.followings.count() ,
+        }
+        #redirect('accounts:profile', person.username) 
+        #단순 해당페이지 redirection해서 값을 갱신하는것을 json으로 변환한 것 뿐
+        return JsonResponse(context) 
+    return redirect('accounts:login')

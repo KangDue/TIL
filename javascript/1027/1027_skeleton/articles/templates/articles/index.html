@@ -67,6 +67,9 @@
           //console.log(response)
           let btn = event.target.querySelector('button')
           btn.innerText = response.data.isLiked ? '좋아요 취소':'좋아요'
+          
+          let count = event.target.querySelector(`#like-count-${formId}`)
+          count.innerText = response.data.followers_count
         })
         .catch((response) => {
           console.log(response)
