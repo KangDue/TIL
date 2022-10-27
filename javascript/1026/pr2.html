@@ -28,10 +28,15 @@
                 method:'get',
                 url:'https://dog.ceo/api/breeds/image/random'
             })
+            .then((response) => { 
+              let di = response.data.message
+              img.src = di
+              return response
+            })
             .then((response) => {
-                let di = response.data.message
-                img.src = di
+                // h2.innerHTML = ''
                 img.addEventListener('load',(event)=>{h2.innerHTML=''})
+                return response
             })
             .catch((response) => {
                 console.log(response)

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+  let my_api_key = '7ad65284e3bec41aef2867db61d82ec7'
+  axios({
+    method:'get',
+    url:`http://ws.audioscrobbler.com/2.0/?method=album.search&album=believe&api_key=${my_api_key}&format=json`
+  })
+  .then((request) => {
+    console.log(request.data) //albummatches
+  })
+  .catch((request) => {
+    console.log('request failed')
+  })
+
+</script>
+</body>
+</html>
