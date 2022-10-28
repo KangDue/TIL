@@ -19,28 +19,24 @@
   <a href="{% url 'articles:index' %}">[back]</a>
   <hr>
   <h4>댓글 목록</h4>
-  {% if comments %}
-    <p><b>{{ comments|length }}개의 댓글이 있습니다.</b></p>
-  {% endif %}
+  <p><b></b></p>
   <ul>
     {% for comment in comments %}
       <li>
         {{ comment.user }} - {{ comment.content }}
         {% if user == comment.user %}
-          <form action="{% url 'articles:comments_delete' article.pk comment.pk %}" method="POST" class="d-inline">
+          <form action="{% url 'articles:comments_delete' article.pk comment.pk %}" method="POST" class="d-inline" name="delete">
             {% csrf_token %}
             <input type="submit" value="DELETE">
           </form>
         {% endif %}
       </li>
-    {% empty %}
-      <p>댓글이 없어요..</p>
     {% endfor %}
   </ul>
 
   <hr>
   {% if request.user.is_authenticated %}
-    <form id="ccreate" data-article-pk="{{ article.pk }}">
+    <form id="ccreate" data-article-pk="{{ article.pk }}" data-user-name="{{ user }}">
       {% csrf_token %}
       {{ comment_form }}
       <input type="submit">
@@ -56,22 +52,135 @@
   let form = document.querySelector('#ccreate')
   let articlePk = form.dataset.articlePk
   let csrftoken = form.querySelector('input[name=csrfmiddlewaretoken]').value
-  console.log(articlePk,csrftoken)
-  let input = form.querySelector('input')
+  let commentInput = form.querySelector('#id_content')
+  let ul = document.querySelector('ul')
+  let comments = document.querySelectorAll('li')
+  let comments_count = comments.length
+  let comment_state = document.querySelector('b')
+  if (comments_count) {
+    comment_state.innerText = `${ comments.length }개의 댓글이 있습니다.`
+  }
+  else {
+    comment_state.innerText = '댓글이 없어요. ..'
+  }
+
   form.addEventListener('submit',(event) => {
     event.preventDefault()
+    // console.log(commentInput.value)
+    articlePk = parseInt(articlePk)
     axios({
       method:'post',
-      url: `http://127.0.0.1:8000/articles/${articlePk}/comments/`,
+      //http://127.0.0.1:8000/articles
+      url: `/articles/${articlePk}/comments/`,
       headers: {'X-CSRFToken': csrftoken},
-      data: {'content':input.value}
+      dataType: "json",
+      data: {'content':commentInput.value},
     })
     .then((response) => {
-      console.log(response.data)
+      let userContent = document.createElement('li')
+      let deleteComment = document.createElement('form')
+      let commentToken = document.createElement('input')
+      let submitDelete = document.createElement('input')
+      let reviseForm = document.createElement('form')
+      let commentRevise = document.createElement('input')
+      let data = response.data
+
+      userContent.innerText = `${ form.dataset.userName } - ${ data.content }`
+      deleteComment.setAttribute('action',`/articles/${articlePk}/comments/${data.id}/delete/`)
+      deleteComment.setAttribute('method','POST')
+      deleteComment.setAttribute('class','d-inline')
+      deleteComment.setAttribute('name','delete')
+
+      submitDelete.setAttribute('type','submit')
+      submitDelete.setAttribute('value','DELETE')
+
+      commentToken.setAttribute('type','hidden')
+      commentToken.setAttribute('name','csrfmiddlewaretoken')
+      commentToken.setAttribute('value',`${csrftoken}`)
+
+      reviseForm.setAttribute('name','revise')
+      reviseForm.setAttribute('method','POST')
+      reviseForm.setAttribute('class','d-inline')
+
+      commentRevise.setAttribute('type','submit')
+      commentRevise.setAttribute('value','수정')
+
+      //create로 만든 요소는 한 번 사용되면 사라짐.
+      reviseForm.append(commentToken.cloneNode(),commentRevise)
+      reviseForm.setAttribute('mode','0')
+      reviseForm.setAttribute('data-comment-id',`${data.id}`)
+      reviseForm.addEventListener('submit',(event) => {
+          event.preventDefault()
+          //mode=0 수정버튼 누르기 전.
+          if (event.target.getAttribute('mode') === '0') {
+              event.target.setAttribute('mode','1')
+              let reviseInput = document.createElement('input')
+              reviseInput.setAttribute('type','text')
+              event.target.appendChild(reviseInput)
+              event.target.querySelector('input[type=submit]').value='수정완료'
+
+            }
+          else {
+            let parent = event.target.parentNode
+            event.target.setAttribute('mode','0')
+            event.target.querySelector('input[type=submit]').value='수정'
+            let revisedData = data
+            let dCopy = parent.querySelector('[name=delete]').cloneNode(1)
+            let ip = event.target.querySelector('[type=text]')
+            console.log(ip)
+            response.data.content = ip.value
+            parent.innerText = `${ form.dataset.userName } - ${ ip.value }`
+            ip.remove()
+            let rCopy = event.target.cloneNode(1)
+            parent.append(dCopy,rCopy)
+
+            
+
+            console.log(revisedData)
+            axios({
+              method:'post',
+              //http://127.0.0.1:8000/articles
+              url: `/articles/${articlePk}/comments/${event.target.dataset.commentId}/update/`,
+              headers: {'X-CSRFToken': csrftoken},
+              dataType: "json",
+              data: revisedData,
+                  })
+            .then((res) => {
+              console.log(res)
+            })
+
+
+            }
+
+
+
+        })
+
+      deleteComment.append(commentToken,submitDelete)
+      userContent.append(deleteComment,reviseForm)
+      ul.appendChild(userContent)
+      commentInput.value = ''
+
+      comments_count ++
+      if (comments_count) {
+        comment_state.innerText = `${ comments.length }개의 댓글이 있습니다.`
+      }
+      else {
+       comment_state.innerText = '댓글이 없어요. ..'
+      }
+
+
+      
+
+
     })
-
-
+    .catch((response) => {
+      console.log(response)
+    })
   })
+
+
+
 
 
 </script>

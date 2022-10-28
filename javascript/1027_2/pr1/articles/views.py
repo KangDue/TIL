@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from .models import Article, Comment
 from .forms import ArticleForm, CommentForm
 from .serializers import *
-
+from rest_framework.decorators import api_view
 # Create your views here.
 @require_safe
 def index(request):
@@ -80,20 +80,15 @@ def update(request, pk):
     return render(request, 'articles/update.html', context)
 
 
-@require_POST
+@api_view(['POST'])
 def comments_create(request, pk):
     if request.user.is_authenticated:
+        print(request.data)
         article = get_object_or_404(Article, pk=pk)
-        print(0000000000000000000000000000,request,00000000000000000000000000000000000000000)
-        cs = CommentSerializer(data=request.POST)
+        cs = CommentSerializer(data=request.data) #값은 data로 받는다.
         if cs.is_valid(raise_exception=True):
-            cs.save(commit=False)
-            cs.article = article
-            cs.user = request.user
-            cs.save()
-            context = {'cs':cs}
-            print(context)
-            return JsonResponse(context)
+            cs.save(article=article, user=request.user)
+            return JsonResponse(cs.data)
     return redirect('accounts:login')
 
 
@@ -104,6 +99,20 @@ def comments_delete(request, article_pk, comment_pk):
         if request.user == comment.user:
             comment.delete()
     return redirect('articles:detail', article_pk)
+
+@api_view(['POST'])
+def comments_update(request,article_pk,comment_pk):
+    if request.user.is_authenticated:
+        comment = get_object_or_404(Comment, pk = comment_pk)
+        if request.user == comment.user:
+            print('-------------------------------',request.data)
+            cs = CommentSerializer(instance = comment, data = request.data)
+            if cs.is_valid(raise_exception=True):
+                cs.save()
+                return JsonResponse(cs.data)
+    return redirect('articles:detail', article_pk)
+
+            
 
 
 @require_POST
