@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1> {{ person.username }}님의 프로필 </h1>
+<p>팔로워 수 : {{ person.followers.count }}/ 팔로잉 수 : {{ person.followings.count }} </p>
+<form action="{% url 'accounts:follow' person %}" method="post">
+    {% csrf_token %}
+    {% if user in person.followers.all %}
+        <input type="submit" value="언팔로우">
+    {% else %}
+        <input type="submit" value="팔로우">
+    {% endif %}
+</form>
+<p>작성한 게시글 수 : {{ person.article_set.count }} 개</p>
+<p>작성한 댓글 수 : {{ person.comment_set.count }} 개 </p>
+{% endblock content %}

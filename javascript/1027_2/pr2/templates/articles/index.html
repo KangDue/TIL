@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<hr>
+<h1>게시글 목록</h1>
+<a href="{% url 'articles:create' %}">게시글 작성</a>
+<hr>
+{% for article in articles %}
+    <p>작성자: <a href="{% url 'accounts:profile' article.user %}">{{ article.user }}</a></p>
+    <p><h2><a href="{% url 'articles:detail' article.pk %}">{{ article.pk }} 번째 글입니다.</a> / 좋아요 수 : {{ article.like_users.count }} </p></h2>
+    <p>제목: {{ article.title }}</p>
+    <form action="{% url 'articles:delete' article.pk %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="글 삭제">
+    </form>
+    <form action="{% url 'articles:likes' article.pk %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="index" value='1'>
+        {% if user in article.like_users.all %}
+            <input type="submit" value="싫어요"> 
+        {% else %}
+            <input type="submit" value="좋아요">
+        {% endif %}
+        
+    </form>
+    <hr>
+    {% empty %}
+    <p>게시글이 없습니다.</p>
+
+{% endfor %}
+
+{% endblock content %}

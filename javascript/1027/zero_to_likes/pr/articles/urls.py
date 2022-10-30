@@ -1,4 +1,3 @@
-from nturl2path import url2pathname
 from django.urls import path
 from . import views
 app_name = 'articles'
@@ -13,3 +12,5 @@ urlpatterns = [
     path('<int:article_pk>/comment/<int:comment_pk>/delete',views.comment_delete,name='comment_delete'),
     path('<int:article_pk>/likes/',views.likes,name='likes')
 ]
+
+

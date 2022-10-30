@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Detail</h1>
+<hr>
+<p>글 번호: {{ article.pk }} 번 글 / 좋아요 수 : {{ article.like_users.count }}</p>
+<p>제목: {{ article.title }}</p>
+<p>내용: {{ article.content }}</p>
+<p>작성 시각: {{ article.created_at }}</p>
+<p>수정 시각: {{ article.updated_at }}</p>
+<form action="{% url 'articles:likes' article.pk %}" method="post">
+    {% csrf_token %}
+    {% if user in article.like_users.all %}
+        <input type="submit" value="싫어요"> 
+    {% else %}
+        <input type="submit" value="좋아요">
+    {% endif %}
+    
+</form>
+<hr>
+<a href="{% url 'articles:update' article.pk %}">글 수정하기</a>
+<form action="{% url 'articles:delete' article.pk %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="글 삭제">
+</form>
+<a href="{% url 'articles:index' %}">홈으로</a>
+<hr>
+<h2>댓글 목록</h2>
+<hr>
+<hr>
+{% for comment in comments %}
+    <div style="boder: 3px solid;">
+        {{ comment.user }} : {{ comment.content }}
+        <form action="{% url 'articles:comment_delete' article.pk comment.pk %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="X">
+        <a href="{% url 'articles:comment_update' article.pk comment.pk %}">댓글 수정</a>
+        </form>
+    </div>
+    <hr>
+{% endfor %}
+<form action="{% url 'articles:comment_create' article.pk %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="댓글 작성">
+</form>
+
+{% endblock content %}
+
+
