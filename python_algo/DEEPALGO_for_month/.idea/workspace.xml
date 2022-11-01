@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e814bf64-de10-485d-81ac-dca739e09041" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../algorithm/daily/1011/boj_16637/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../algorithm/daily/1011/boj_16637/solve.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../algorithm/daily/1011/boj_17135/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../algorithm/daily/1011/boj_17135/solve.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../algorithm/daily/1011/boj_17136/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../algorithm/daily/1011/boj_17136/solve.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../algorithm/daily/1012/boj_17281/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../algorithm/daily/1012/boj_17281/solve.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../pjt/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.bashrc" beforeDir="false" afterPath="$PROJECT_DIR$/../../.bashrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/.idea/pjt.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../pjt/.idea/pjt.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/client.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/0.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/1.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/10.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/11.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/12.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/13.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/14.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/15.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/16.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/17.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/18.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/19.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/2.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/20.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/21.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/22.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/23.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/24.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/25.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/26.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/27.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/28.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/29.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/3.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/30.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/31.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/32.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/33.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/34.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/35.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/36.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/37.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/38.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/39.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/4.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/40.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/41.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/42.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/43.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/44.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/45.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/46.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/47.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/48.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/49.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/5.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/50.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/51.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/52.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/53.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/54.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/55.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/56.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/57.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/58.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/59.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/6.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/60.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/61.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/62.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/63.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/7.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/8.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/images/9.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/network.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/num_client.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/num_server.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pjt/server.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2G2MeBFOza9uiUzsSAbvvqUCKac" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e814bf64-de10-485d-81ac-dca739e09041" name="Changes" comment="" />
+      <created>1665582317777</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665582317777</updated>
+      <workItem from="1665582318927" duration="1633000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

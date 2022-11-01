@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="47433bfa-b258-4cf1-aba3-799081ccff43" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.bashrc" beforeDir="false" afterPath="$PROJECT_DIR$/../../.bashrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/pjt.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/pjt.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/0.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/1.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/10.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/11.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/12.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/13.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/14.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/15.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/16.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/17.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/18.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/19.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/2.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/20.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/21.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/22.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/23.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/24.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/25.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/26.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/27.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/28.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/29.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/3.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/30.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/31.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/32.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/33.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/34.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/35.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/36.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/37.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/38.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/39.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/4.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/40.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/41.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/42.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/43.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/44.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/45.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/46.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/47.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/48.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/49.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/5.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/50.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/51.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/52.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/53.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/54.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/55.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/56.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/57.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/58.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/59.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/6.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/60.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/61.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/62.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/63.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/7.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/8.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../images/9.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../network.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../num_client.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../num_server.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2FxAbmc2WH8QxdJgCVsCx5kA8Td" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="47433bfa-b258-4cf1-aba3-799081ccff43" name="Changes" comment="" />
+      <created>1665423435189</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665423435189</updated>
+      <workItem from="1665423436282" duration="3888000" />
+      <workItem from="1665427347908" duration="12434000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
