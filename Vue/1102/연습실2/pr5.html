@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Noto Sans KR', sans-serif;
+      color: rgb(38, 38, 38);
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 500px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      color: #50B8E7;
+    }
+
+    .buttonArea {
+      margin: 0 auto;
+      width: 80%;
+    }
+
+    .buttonRow {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      height: 80px;
+    }
+
+    .btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 45%;
+      border: 1px solid #50B8E7;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 10px;
+      outline: none;
+      background: none;
+      border: 1px solid #50B8E7;
+      width: 100px;
+      height: 50px;
+      cursor: pointer;
+      font-size: large;
+    }
+
+    .result:hover {
+      background-color: #B9E2F5;
+    }
+
+    .type {
+      font-size: x-large;
+      font-weight: bold;
+    }
+
+    .selected {
+      background-color: #B9E2F5;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="container">
+      <h1>MBTI 검사기</h1>
+      <section class="buttonArea">
+        <div class="buttonRow">
+          <div class="btn" @click="check('fe')" :class="{selected:fe}">
+            <span class="type">E</span>
+            <span>외향형</span>
+          </div>
+          <div class="btn" @click="check('fi')" :class="{selected:fi}">
+            <span class="type" >I</span>
+            <span>내향형</span>
+          </div>
+        </div>
+        <div class="buttonRow">
+          <div class="btn" @click="check('ss')" :class="{selected:ss}">
+            <span class="type">S</span>
+            <span>감각형</span>
+          </div>
+          <div class="btn" @click="check('sn')" :class="{selected:sn}">
+            <span class="type">N</span>
+            <span>직관형</span>
+          </div>
+        </div>
+        <div class="buttonRow">
+          <div class="btn" @click="check('tt')" :class="{selected:tt}">
+            <span class="type">T</span>
+            <span>사고형</span>
+          </div>
+          <div class="btn" @click="check('tf')" :class="{selected:tf}">
+            <span class="type">F</span>
+            <span>감정형</span>
+          </div>
+        </div>
+        <div class="buttonRow">
+          <div class="btn" @click="check('fj')" :class="{selected:fj}">
+            <span class="type">J</span>
+            <span>판단형</span>
+          </div>
+          <div class="btn" @click="check('fp')" :class="{selected:fp}">
+            <span class="type">P</span>
+            <span>인식형</span>
+          </div>
+        </div>
+      </section>
+      <button class="result" @click="getResult">결과 보기</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        fe: false,
+        fi: false,
+        ss: false,
+        sn: false,
+        tt: false,
+        tf: false,
+        fj: false,
+        fp: false,
+        result:['','','',''],
+      },
+      methods:{
+        check(x) {
+          if (x==='fe') {
+            this.fe = !this.fe
+            this.fi = false
+            this.result[0]='e'
+          }
+          else if (x==='fi') {
+            this.fi = !this.fi
+            this.fe = false
+            this.result[0]='i'
+          }
+          else if (x==='ss') {
+            this.ss = !this.ss
+            this.sn = false
+            this.result[1]='s'
+          }
+          else if (x==='sn') {
+            this.sn = !this.sn
+            this.ss = false
+            this.result[1]='n'
+          }
+          else if (x==='tt') {
+            this.tt = !this.tt
+            this.tf = false
+            this.result[2]='t'
+          }
+          else if (x==='tf') {
+            this.tf = !this.tf
+            this.tt = false
+            this.result[2]='f'
+          }
+          else if (x==='fj') {
+            this.fj = !this.fj
+            this.fp = false
+            this.result[3]='j'
+          }
+          else if (x==='fp') {
+            this.fp = !this.fp
+            this.fj = false
+            this.result[3]='p'
+          }
+        },
+        getResult() {
+          let temp = this.result.join('')
+          if (temp.length < 4) {
+            alert('유형을 모두 선택해 주세요!')
+            return 0
+          }
+          location.href=`https://www.16personalities.com/ko/성격유형-${temp}`
+        }
+      }
+    })
+  </script>
+</body>
+</html>

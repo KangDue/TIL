@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h1>회문 검사기</h1>
+    <form @submit.prevent="isPal(itext)">
+      <input type="text" v-model="itext">
+      <input type="submit" value="확인하기">
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data() {
+        return {
+          itext:'',
+        }
+      },
+      methods:{
+        isPal(x) {
+          if (x==='') {
+            alert('입력값이 없습니다!')
+          }
+
+          if (x.length <= 1){
+            alert("회문입니다!")
+            return true
+          }
+          else if (x.charAt(0) != x.charAt(x.length-1)) {
+            alert("회문이 아닙니다!")
+            return false
+          }
+          return this.isPal(x.slice(1,x.length-1))
+        }
+
+      },
+
+
+    })
+
+  </script>
+</body>
+</html>

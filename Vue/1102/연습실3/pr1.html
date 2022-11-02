@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 응용해서 다크모드 가능 -->
+  <style>
+    .completed{
+      color:gray;
+      text-decoration: line-through;
+    }
+    .none {
+      color:red;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <select name="list" v-model="status">
+      <option value="all">전체</option>
+      <option value="inProgress">진행중</option>
+      <option value="complete">완료</option>
+    </select>
+    <input type="text" v-model="content">
+    <button @click="add_todo" >+</button>
+    <ul>
+      <li v-for="todo in todoListByStatus" :key="todo.date">
+        <!-- v-model로 양방향 넘기기도 가능 -->
+        <input type="checkbox" @click="isCompleted(todo)" :check="todo.isCompleted">
+        <!-- : 오른쪽이 true 면 클래스 부여 -->
+        <!-- ,로 여러개 조건 가능 -->
+        <span :class="{completed:todo.isCompleted, none:!todo.isCompleted }">{{ todo.content }}</span>
+      </li>
+    </ul>
+    <button @click="delete_completed">완료된 할일 지우기</button>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    let ip = document.querySelector('input')
+    let ul = document.querySelector('ul')
+    const app = new Vue({
+      el:'#app',
+      data:{
+        content:"워크샵",
+        todos:[],
+        completed:[],
+        status:'',
+      },
+      methods:{
+        isCompleted:function(todo){
+          todo.isCompleted = !todo.isCompleted
+        },
+        add_todo:function() {
+          const todo = {
+            content : this.content,
+            isCompleted: false,
+            date : new Date().getTime(),
+            complete:[],
+          }
+          if (this.content) {
+            this.todos.push(todo)
+            this.content=null
+          }
+        },
+        delete_completed:function() {
+          let temp = this.todos.filter(todo => !todo.isCompleted)
+          // temp.forEach(val => this.completed.push(val))
+          this.todos = temp
+        },
+      },
+      computed:{
+        todoListByStatus() {
+          return this.todos.filter(todo=>{
+            if (this.staus === 'inProgress'){
+              return todo.isCompleted === false
+            }
+            if (this.status === 'complete') {
+              return todo.isCompleted
+            }
+            else {
+              return true
+            }
+          })
+        }
+
+      },
+    })
+
+
+  </script>
+
+
+</body>
+</html>

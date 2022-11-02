@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .checked {text-decoration: line-through; color:gray;}
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>Todo List</h1>
+    <form @submit.prevent="append">
+      <input type="text" v-model="todoText">
+      <input type="submit" value="+">
+    </form>
+    <ul>
+      <li v-for="(todo,index) in todoList" :key="index" :class="{checked:todo.checked}">
+        <input type="checkbox" v-model="todo.checked">
+        {{ todo.content }}
+      </li>
+    </ul>
+    <button @click="deleteTodo">완료 목록 삭제</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+        todoText:'',
+        todoList:[],
+        checked:0,
+        i:0,
+      },
+      methods:{
+        append() {
+          if (this.todoText === '') {
+            alert('내용을 입력해 주세요!')
+            return 0
+          }
+          let todo = {content:this.todoText, checked:0, id:this.i++}
+          this.todoList.push(todo)
+          this.todoText=''
+        },
+        deleteTodo() {
+          this.todoList = this.todoList.filter(function(todo) {
+            console.log(todo)
+            if (todo.checked===true){
+              return false
+            }
+            return true
+          })
+        }
+      },
+    })
+  </script>
+</body>
+</html>

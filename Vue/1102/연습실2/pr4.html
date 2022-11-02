@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .checked {text-decoration: line-through; color:gray;}
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>Todo List</h1>
+    <form @submit.prevent="append">
+      <select v-model="opt">
+        <option value="all">전체</option>
+        <option value="ing">진행중</option>
+        <option value="complete">완료</option>
+      </select>
+      <input type="text" v-model="todoText">
+      <input type="submit" value="+">
+    </form>
+    <ul>
+      <li v-for="(todo,index) in filterTodo" :key="index" :class="{checked:todo.checked}">
+        <input type="checkbox" v-model="todo.checked">
+        {{ todo.content }}
+      </li>
+    </ul>
+    <button @click="deleteTodo">완료 목록 삭제</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let localData = localStorage
+    console.log(localData)
+    const app = new Vue({
+      el:'#app',
+      //JSON.parse(localStorage.getItem("totalInfo")) 
+      data: JSON.parse(localData.getItem("tot")) || {
+        todoText:'',
+        todoList:[],
+        i:0,
+        opt:'',
+      },
+      methods:{
+        append() {
+          if (this.todoText === '') {
+            alert('내용을 입력해 주세요!')
+            return 0
+          }
+          let todo = {content:this.todoText, checked:0, id:this.i++}
+          this.todoList.push(todo)
+          this.todoText=''
+        },
+        deleteTodo() {
+          this.todoList = this.todoList.filter(function(todo) {
+            if (todo.checked===true){
+              return false
+            }
+            return true
+          })
+        },
+      },
+      computed:{
+        filterTodo () {
+          if (this.opt === 'ing') {
+            return this.todoList.filter(function(todo) { 
+              if (!todo.checked) { return true }
+            })
+          }
+          else if (this.opt === 'complete') {
+            return this.todoList.filter(function(todo) { 
+              if (todo.checked) { return true }
+            })
+          }
+          return this.todoList
+        }
+      },
+    })
+
+window.addEventListener("beforeunload", function (event) {
+  localStorage.setItem('tot',JSON.stringify(_.cloneDeep(app['_data'])))
+  event.returnValue = "진짜 나가요?";
+  alert('진짜 나가요?')
+});
+  </script>
+</body>
+</html>
