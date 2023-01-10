@@ -1,18 +1,11 @@
 package tutorials.numberstring;
 
-import java.io.File;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 public class number {
     public static void main(String[] args) {
-        try {
-            File file = new File("input.txt");
-            Scanner sc = new Scanner(file);
-            while (sc.hasNextInt()) {
-                System.out.println(sc.nextInt());
-            }
-            sc.close();
-        } catch (Exception e) {
-            System.out.println(1111111);
-        }
-    }
+        String a = "x";
+        Stream<>
+        stream.forEach()
 }
