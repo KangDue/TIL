@@ -1,6 +1,7 @@
 package jpabook.jpashop.domain;
 
-import jpabook.jpashop.domain.item.Item;
+
+import jpabook.jpashop.domain.items.Item;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,5 +26,25 @@ public class OrderItem {
     private int orderPrice;
 
     private int count;
+
+    protected OrderItem() {} // @NoArgsConstructor(access=AccessLevel.PROTECTED)
+    public static OrderItem createOrderItem(Item item, int orderPrice, int count) {
+        OrderItem orderItem = new OrderItem();
+        orderItem.setItem(item);
+        orderItem.setOrderPrice(orderPrice);
+        orderItem.setCount(count);
+
+        item.removeStock(count);
+        return orderItem;
+    }
+
+    // B-logic
+    public void cancel() {
+        getItem().addStock(count);
+    }
+
+    public int getTotalPrice() {
+        return getOrderPrice() * getCount();
+    }
 
 }
