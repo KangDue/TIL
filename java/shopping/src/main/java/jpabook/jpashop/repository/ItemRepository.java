@@ -15,8 +15,11 @@ public class ItemRepository {
 
     public void save(Item item) {
         if (item.getId() == null) { // 새로만든 객체
+            System.out.println("새로만든거");
+            System.out.println(item);
             em.persist(item);
         } else { // db 에있는 객체, update와 비슷한 의미
+            System.out.println("구식입니다.");
             em.merge(item);
         }
     }

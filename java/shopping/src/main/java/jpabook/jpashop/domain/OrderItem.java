@@ -15,7 +15,7 @@ public class OrderItem {
     @Column(name = "order_item_id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY) // 모든 order가 table 하나에 쌓여감. -> 테이블상 여러개의 orderItem이 하나의 item 가리킬 수 있다.
     @JoinColumn(name = "item_id") // order_item이 주인인 1대 다 관계
     private Item item;
 

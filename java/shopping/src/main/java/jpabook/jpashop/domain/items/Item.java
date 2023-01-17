@@ -1,6 +1,7 @@
 package jpabook.jpashop.domain.items;
 
 import jpabook.jpashop.domain.Category;
+import jpabook.jpashop.dto.ItemForm;
 import jpabook.jpashop.exception.NotEnoughStockException;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,6 +24,8 @@ public abstract class Item {
     private int price;
     private int stockQuantity;
 
+    public abstract Item createItem(ItemForm itemForm);
+    public abstract ItemForm transItemForm();
     @ManyToMany(mappedBy = "items") // cascade 남발하면 오류 막뜬다 조심
     private List<Category> categories = new ArrayList<>();
 
@@ -36,5 +39,11 @@ public abstract class Item {
             throw new NotEnoughStockException("Need more stock");
         }
         this.stockQuantity = restStock;
+    }
+
+    public String getDtype() {
+        System.out.println(this.getDtype());
+        System.out.println("우찬사랑");
+        return this.getDtype();
     }
 }
