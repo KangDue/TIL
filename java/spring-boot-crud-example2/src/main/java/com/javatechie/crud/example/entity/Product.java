@@ -1,12 +1,17 @@
 package com.javatechie.crud.example.entity;
 
+import com.javatechie.crud.example.service.ImgService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
-
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import com.javatechie.crud.example.common.CommonMethods;
 @Data
 @RequiredArgsConstructor
 @Entity
@@ -19,10 +24,12 @@ public class Product {
     @Column(name = "product_name")
     private String name;
 
-    private String imgUrl;
+    @OneToMany(mappedBy="product")
+    private List<Img> imgList = new ArrayList<>();;
     private int quantity; // count 대신
     private int price;
     private String description;
 
     private int category_id; // category
+
 }

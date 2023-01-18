@@ -1,25 +1,48 @@
 package com.javatechie.crud.example.controller;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.javatechie.crud.example.common.CommonMethods;
+import com.javatechie.crud.example.entity.Img;
 import com.javatechie.crud.example.entity.Product;
+import com.javatechie.crud.example.repository.ProductRepository;
+import com.javatechie.crud.example.service.ImgService;
 import com.javatechie.crud.example.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.*;
 
 @RestController
 @RequiredArgsConstructor
 public class ProductController {
 
     private final ProductService productService;
+    private final ImgService imgService;
+    ObjectMapper objectMapper = new ObjectMapper();
+    private final ProductRepository productRepository;
 
+//    @PostMapping("/addproduct")
+//    public Product addProduct(@RequestBody Product product) {
+//        return productService.saveProduct(product);
+//    }
+
+    //https://devjaewoo.tistory.com/88 error 참고.
     @PostMapping("/addproduct")
-    public Product addProduct(@RequestBody Product product) {
-        return productService.saveProduct(product);
+    public Product test(@RequestBody String message) throws Exception {
+        return productService.createProduct(message);
     }
-    @PostMapping("/addproducts")
-    public List<Product> addProducts(@RequestBody List<Product> products) {
-        return productService.saveProducts(products);
+    @PostMapping("/addproducts") //여러개 한번에 찜하진 않을듯.
+    public List<Product> addProducts(@RequestBody String messages) throws Exception {
+        TypeReference<Map<String, String>> typeReference = new TypeReference<Map<String,String>>() {};
+        Map<String, String> map = objectMapper.readValue(messages, typeReference);
+        List<Product> products = new ArrayList<Product>();
+        for (int i = 0; i < map.size(); i++) {
+            products.add(productService.createProduct(map.get(String.valueOf(i))) );
+        };
+
+        return products;
     }
 
     @GetMapping("/products")
@@ -53,4 +76,5 @@ public class ProductController {
     public String deleteProduct(@PathVariable int id) {
         return productService.deleteProduct(id);
     }
+
 }
