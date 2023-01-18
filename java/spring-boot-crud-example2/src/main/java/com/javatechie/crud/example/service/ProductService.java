@@ -45,13 +45,20 @@ public class ProductService {
         return "product removed !!" + id;
     }
 
+    public List<Product> searchProducts(int minPrice, int maxPrice, String name, Integer category) {
+        return productRepository.findByPriceBetweenAndNameContainingAndCategory(minPrice, maxPrice, name, category);
+    }
+    public List<Product> searchProducts2(int minPrice, int maxPrice, String name) {
+        return productRepository.findByPriceBetweenAndNameContaining(minPrice,maxPrice,name);
+    }
+
     public Product updateProduct(Product product) {
         Product existingProduct = productRepository.findById(product.getId()).orElse(null);
         existingProduct.setName(product.getName());
         existingProduct.setPrice(product.getPrice());
         existingProduct.setQuantity(product.getQuantity());
         existingProduct.setDescription(product.getDescription());
-        existingProduct.setCategory_id(product.getCategory_id());
+        existingProduct.setCategory(product.getCategory());
         existingProduct.setImgList(product.getImgList());
         return productRepository.save(existingProduct);
     }
@@ -65,6 +72,7 @@ public class ProductService {
         Map<String, String> map = objectMapper.readValue(message, typeReference);
         Product product = new Product();
         List<Img> images = new ArrayList<>();
+
 
         String temp = map.get("imgList");
         temp = temp.substring(1, temp.length() - 1);
@@ -82,7 +90,7 @@ public class ProductService {
         product.setName(map.get("name"));
         product.setPrice(Integer.valueOf(map.get("price")));
         product.setQuantity(Integer.valueOf(map.get("quantity")));
-        product.setCategory_id(Integer.valueOf(map.get("category_id")));
+        product.setCategory(Integer.valueOf(map.get("category")));
         product.setDescription(map.get("description"));
         product.setImgList(images);
 
