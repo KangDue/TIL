@@ -1,11 +1,28 @@
 package com.javatechie.crud.example.common;
 
+import lombok.Data;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
 public class CartDTO {
-    public static int cartId;
-    public static int productId;
+    private Integer cartId;
+    private Integer productId;
+
+    public Integer getCartId() {
+        return cartId;
+    }
+
+    public Integer getProductId() {
+        return productId;
+    }
+
+    public void setCartId(Integer cartId) {
+        this.cartId = cartId;
+    }
+
+    public void setProductId(Integer productId) {
+        this.productId = productId;
+    }
 }
+

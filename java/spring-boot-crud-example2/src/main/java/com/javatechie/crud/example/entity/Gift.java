@@ -1,6 +1,5 @@
 package com.javatechie.crud.example.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -8,21 +7,22 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Setter
 @Getter
 @RequiredArgsConstructor
 @Entity
-@Table(name = "cart")
-public class Cart {
+@Table(name = "gift")
+public class Gift {
     @Id
     @GeneratedValue
-    @Column(name = "cart_id")
+    @Column(name = "gift_id")
     private int id;
-    private int quantity;// count 대신
 
-    @OneToMany(mappedBy="cart")
-    private List<CartItem> cartItems = new ArrayList<>();;
-    private int price;
+    @OneToMany(mappedBy="gift")
+    private List<GiftItem> giftItems = new ArrayList<>();;
+
+    private int totPrice;
 
 }

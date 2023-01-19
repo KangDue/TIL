@@ -97,20 +97,5 @@ public class ProductController {
         return productService.deleteProduct(id);
     }
 
-    @PostMapping("/add-to-cart")
-    public Cart addToCart(@RequestBody CartDTO cartDTO) {
-        // product id를 담자!
-//        Product product = productService.getProductById(cartDTO.cartId);
-        Cart cart = cartService.getCartById(cartDTO.cartId);
-        List<Product> products = cart.getCartItems();
-        Product product = productService.getProductById(cartDTO.productId);
-        Integer price = product.getPrice();
-        Integer total = cart.getPrice();
-        products.add(product);
-        cart.setPrice(total + price);
-        cart.setQuantity(cart.getQuantity() + 1);
-        cart.setCartItems(products);
-        cartService.saveCart(cart);
-        return cart;
-    }
+
 }
