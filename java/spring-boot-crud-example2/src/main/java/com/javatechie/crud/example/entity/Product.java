@@ -23,7 +23,7 @@ public class Product {
     @Column(name = "product_name")
     private String name;
 
-    @OneToMany(mappedBy="product")
+    @OneToMany(mappedBy="product",fetch = FetchType.LAZY)
     private List<Img> imgList = new ArrayList<>();;
     private int quantity; // count 대신
     private int price;
@@ -35,7 +35,7 @@ public class Product {
     private int likeCount;
 
     @JsonIgnore
-    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(mappedBy = "product",cascade = CascadeType.ALL, orphanRemoval = true)
     private CartItem cartItem;
 
 }

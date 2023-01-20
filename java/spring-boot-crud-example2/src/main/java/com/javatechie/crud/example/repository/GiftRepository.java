@@ -1,6 +1,5 @@
 package com.javatechie.crud.example.repository;
 
-import com.javatechie.crud.example.entity.Cart;
 import com.javatechie.crud.example.entity.Gift;
 import org.springframework.data.jpa.repository.JpaRepository;
 
